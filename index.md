@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## About Me
+## DO Dinh Hieu
 
 <img class="profile-picture" src="profile.jpg">
 
