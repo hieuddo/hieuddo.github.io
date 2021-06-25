@@ -7,9 +7,9 @@ markdown: kramdown
 
 tracking_id: UA-193328703-1
 
-# footer: yes
-# footer_url: "https://github.com/ankitsultana"
-# footer_text: "Page design by Ankit Sultana"
+footer: yes
+footer_url: "https://github.com/ankitsultana/researcher"
+footer_text: "Page design by Ankit Sultana"
 
 sass:
     style: compressed
@@ -20,3 +20,15 @@ nav:
    link: "index"
  - name: "Resume"
    link: "resume.pdf"
+
+links:
+  - name: "AI Conference Deadlines"
+    link: "https://aideadlin.es/"
+  - name: "WikiCFP"
+    link: "http://www.wikicfp.com/cfp/"
+  - name: "DBWorld"
+    link: "https://research.cs.wisc.edu/dbworld/browse.html"
+  - name: "Upcoming CS Conferences"
+    link: "http://www.conferencelist.info/upcoming.html"
+  - name: "Ranking"
+    link: "http://www.conferencelist.info/targets.html"
