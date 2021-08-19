@@ -20,6 +20,8 @@ nav:
    link: "index"
  - name: "Resume"
    link: "resume.pdf"
+ - name: "Contact"
+   link: "contact"
 
 links:
   - name: "AI Conference Deadlines"
