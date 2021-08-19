@@ -12,5 +12,9 @@ My research interest is about Continual Learning for Recommendation Systems.
 
 
 ## Highlights
-* 2020.08.14: Joined PhD programme in SMU School of Computing and Information Systems.
-* 2020.07.28: Graduated from VNU-UET.
+  * 2020.08.14: Joined PhD programme in SMU School of Computing and Information Systems.
+  * 2020.07.28: Graduated from VNU-UET.
+
+## Useful Links
+  * [AI Conference Deadlines](https://aideadlin.es/?sub=ML,CV,NLP,SP,DM)
+  * [Conference ranking](http://portal.core.edu.au/conf-ranks/)
