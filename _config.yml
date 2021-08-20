@@ -16,7 +16,7 @@ resume: true
 resume-external: true
 resume-url: resume.pdf
 
-url: https://hieuddo.github.io/
+url: https://hieuddo.github.io/homepage
 # your url: https://USERNAME.github.io
 
 permalink: /:title/
