@@ -16,13 +16,13 @@ resume: true
 resume-external: true
 resume-url: resume.pdf
 
-url: https://hieuddo.github.io/homepage
+url: https://hieuddo.github.io
 # your url: https://USERNAME.github.io
 
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'UA-'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
