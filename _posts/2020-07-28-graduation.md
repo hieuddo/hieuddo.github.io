@@ -29,7 +29,7 @@ Backrow: Giang Hoang, HoangNV, Xuan-Anh, Hoang Le, HoangDV, Hieu, Linh, CuongNXV
 
 My scholarship hunter group (a.k.a UET MSc.++ club)
 <img src="../assets/images/graduation/4.jpg">
-(From left: HoangDV, CuongNM, Hoang Le, HoangNV, Xuan-Anh, CuongNXV, Hoang Ngo, Hieu, Midu, Giang Hoang)
+(From left: HoangDV, CuongNM, Hoang Le, HoangNV, Xuan-Anh, CuongNXV, Hoang Ngo, Hieu, Midu, Giang Hoang, Khai)
 
 My Machine Learning related group
 <img src="../assets/images/graduation/5.jpg">
