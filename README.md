@@ -16,9 +16,9 @@
     <b><a href="README.md#how-to">How to</a></b>
 </p>
 
-<p align="center">
+<!-- <p align="center">
     <img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" />
-</p>
+</p> -->
 
 ## What has inside
 
