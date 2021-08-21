@@ -43,7 +43,7 @@ With single [Midu](https://ductm104.github.io/), now Tutor, Research Engineer, S
 [Giang Hoang](https://www.linkedin.com/in/hoang-giang-533b94125/), now Vinnese (in Vietnamese: vin-nô)
 <img src="../assets/images/graduation/8.jpg">
 
-Last and most important, my Luv, who have supported me for nearly one decade.
+Last and most important, my Luv, who has supported me for nearly one decade.
 <img src="../assets/images/graduation/9.jpg">
 
 <img src="../assets/images/graduation/10.jpg">
