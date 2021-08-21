@@ -34,7 +34,7 @@ My Machine Learning related group
 My close friend, Hoang, PhD Candidate to-be at SMU
 <img src="../assets/images/graduation/6.jpg">
 
-With Midu, now Tutor, IT Help Desk, System Administrator at UET-VNUH
+With single [Midu](https://ductm104.github.io/), now Tutor, Research Engineer, System Administrator at AI-lab, UET-VNUH
 <img src="../assets/images/graduation/7.jpg">
 
 Giang H., now Vinnese (in Vietnamese: vin-nô)
