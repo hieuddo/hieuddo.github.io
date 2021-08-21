@@ -24,9 +24,12 @@ Me receiving certificate from Dean of UET.
 
 Taking photo with my classmates
 <img src="../assets/images/graduation/3.jpg">
+(Front row: CuongNM, HungPD, GiangNT, Duc-Anh, GiangTT, HungPT, Hoang Ngo, HungLV,  
+Backrow: Giang Hoang, HoangNV, Xuan-Anh, Hoang Le, HoangDV, Hieu, Linh, CuongNXV, Khai, Tuan-Anh Do, Tuan-Anh Dao, Midu)
 
 My scholarship hunter group (a.k.a UET MSc.++ club)
 <img src="../assets/images/graduation/4.jpg">
+(From left: HoangDV, CuongNM, Hoang Le, HoangNV, Xuan-Anh, CuongNXV, Hoang Ngo, Hieu, Midu, Giang Hoang)
 
 My Machine Learning related group
 <img src="../assets/images/graduation/5.jpg">
@@ -37,7 +40,7 @@ My close friend, Hoang, PhD Candidate to-be at SMU
 With single [Midu](https://ductm104.github.io/), now Tutor, Research Engineer, System Administrator at AI-lab, UET-VNUH
 <img src="../assets/images/graduation/7.jpg">
 
-Giang H., now Vinnese (in Vietnamese: vin-nô)
+[Giang Hoang](https://www.linkedin.com/in/hoang-giang-533b94125/), now Vinnese (in Vietnamese: vin-nô)
 <img src="../assets/images/graduation/8.jpg">
 
 Last and most important, my Luv, who have supported me for nearly one decade.
