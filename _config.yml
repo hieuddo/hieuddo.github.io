@@ -10,6 +10,9 @@ description: Jaime's Homepage
 external-image: false
 picture: assets/images/profile.jpg
 
+# true/false/auto
+dark-theme: auto
+
 # If you want to include your resume, set to true
 # and specify source (external or local).
 resume: true
@@ -115,7 +118,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
-  - jekyll-admin
   - jekyll-paginate-v2
 
 jekyll-mentions:
@@ -129,11 +131,9 @@ compress_html:
 
 exclude:
   [
-    "travis.sh",
     "README.md",
     "Gemfile",
     "Gemfile.lock",
     "FAQ.md",
-    "node_modules",
     "vendor",
   ]
