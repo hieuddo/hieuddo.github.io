@@ -9,10 +9,16 @@ Hi! I am currently a PhD candidate advised by [Prof. Hady W. Lauw](http://www.ha
 
 My research interest is about Continual Learning for Recommendation Systems.
 
-## Highlights
+## News
+  * 2023.07.22: Paper accepted at RecSys-23, titled "Continual Collaborative Filtering Through Gradient Alignment" 
   * 2021.11.19: Passed Qualifying Exam
-  * 2020.08.14: Joined PhD programme in SMU School of Computing and Information Systems.
-  * 2020.07.28: Graduated from VNU-UET (Summa Cum Laude) with Excellent Thesis Award.
+  * 2020.08.14: Joined PhD programme in SMU School of Computing and Information Systems
+  * 2020.07.28: Graduated from VNU-UET (Summa Cum Laude) with Excellent Thesis Award
+
+## Teaching
+### Teaching Assistant
+  * CS608 Recommender Systems (AY2022/2023 Term 3)
+  * IS712 Machine Learning (AY2022/2023 Term 1)
 
 ## Useful Links
   * [AI Conference Deadlines](https://aideadlin.es/?sub=ML,CV,NLP,SP,DM)
