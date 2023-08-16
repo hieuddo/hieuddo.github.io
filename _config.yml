@@ -15,7 +15,7 @@ dark-theme: auto
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
-resume: true
+resume: false
 resume-external: true
 resume-url: /resume.pdf
 
@@ -37,7 +37,7 @@ analytics-google: 'UA-193328703-1'
 #   categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-facebook: hieeudd
+# facebook: hieeudd
 twitter: hieeudd
 # instagram: myinstagram
 # pinterest: mypinterest
