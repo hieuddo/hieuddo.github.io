@@ -1,0 +1,16 @@
+[
+    {
+        "year": "2023",
+        "publications": [
+            {
+                "paperName": "Continual Collaborative Filtering Through Gradient Alignment",
+                "authors": "Jaime Hieu Do and Hady W. Lauw",
+                "conferenceName": "ACM Conference on Recommender Systems (RecSys'23), Late-Breaking Results (LBR) track",
+                "time": "Sep 2023",
+                "pdf": "/papers/recsys23lbr.pdf",
+                "DOI": "",
+                "code": ""
+            }
+        ]
+    }
+]

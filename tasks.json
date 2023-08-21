@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Render Markdown Files",
+            "type": "shell",
+            "command": "node lib/renderMarkdownFiles.js",
+            "group": "build",
+            "dependsOn": "build",
+            "problemMatcher": []
+        }
+    ]
+}
