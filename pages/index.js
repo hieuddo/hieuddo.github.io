@@ -54,7 +54,7 @@ const Home = () => (
         </Heading>
         <Paragraph>
           Xin chào (Hello)!
-          I am currently a PhD candidate and a member of Preferred.AI research group, advised by Prof. Hady W. Lauw at SMU School of Computing and Information Systems. Previously, I obtained my B.Sc. degree in Computer Science at University of Engineering and Technology, Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and Dr. Duc-Trong Le.
+          I am currently a PhD candidate at <Link href="https://preferred.ai/" target="_blank">Preferred.AI</Link> and SMU School of Computing and Information Systems, advised by <Link href="https://www.hadylauw.com/" target="_blank">Prof. Hady W. Lauw</Link>. Previously, I obtained my B.Sc. degree in Computer Science at University of Engineering and Technology, Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and <Link href="https://sites.google.com/view/trongld" target="_blank">Dr. Duc-Trong Le</Link>.
           <br /> <br />
           My primary area of research revolves around the formulation and solution of real-world recommender systems. I am particularly interested in topics such as continual learning for recommender systems and streaming session-based recommendation systems.
         </Paragraph>
