@@ -15,7 +15,7 @@ The image below showcases the route that Hoang (Eric), Viet, and I - undertook:
 
 <img src="/images/blog/finishup-RTI/map.png">
 
-In the previous year, we tackled the challenge under the scorching sun, a true test of our endurance. This time around, we opted for a nocturnal approach to avoid the heat. We commenced our ride from SMU to Vivo City, traversing the West Coast Highway. Our path led us to Jalan Buroh, skiRTIng Pandan Reservoir, and then continuing straight to Jalan Bahar-Lim Chu Kang Road, the sole route to the Cemeteries area of Singapore. All of this took place during the 7th Lunar month, adding an intriguing dimension to our journey.
+In the previous year, we tackled the challenge under the scorching sun, a true test of our endurance. This time around, we opted for a nocturnal approach to avoid the heat. We commenced our ride from SMU to Vivo City, traversing the West Coast Highway. Our path led us to Jalan Buroh, skirting Pandan Reservoir, and then continuing straight to Jalan Bahar-Lim Chu Kang Road, the sole route to the Cemeteries area of Singapore. All of this took place during the 7th Lunar month, adding an intriguing dimension to our journey.
 
 Our route continued through Kranji and Woodlands Checkpoint, where we took a well-deserved break at Woodlands Jetty. Following that, we followed the coastal road to Punggol Point Jetty. The next leg of our journey took us to Changi Beach Park, where we eagerly awaited the break of dawn. Navigating the Tanah-Merah Coast Road, we aimed to cover as much ground as possible, eventually reaching East Coast Park. From there, the path was clear as we followed the PCN route back to Marina Bay and finally returned to SMU, completing the loop.
 
