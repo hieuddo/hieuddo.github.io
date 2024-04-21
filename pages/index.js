@@ -1,10 +1,10 @@
-import { Link, Container, Heading, Box, Button, List, ListItem, chakra } from '@chakra-ui/react'
-import Paragraph from '../components/paragraph'
-import { NewsTable, NewsRow, NewsData } from '../components/news'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
+import { Box, Button, Container, Heading, Link, List, ListItem, chakra } from '@chakra-ui/react'
 import Image from 'next/image'
-import { IoLogoTwitter, IoMail, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoMail } from 'react-icons/io5'
+import Layout from '../components/layouts/article'
+import { NewsData, NewsRow, NewsTable } from '../components/news'
+import Paragraph from '../components/paragraph'
+import Section from '../components/section'
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -91,7 +91,7 @@ const Home = () => (
         </Heading>
         <NewsTable>
           <NewsRow>
-            <NewsData><strong>AY2022/2023 Term 3</strong></NewsData>
+            <NewsData><strong>AY2023/2024 Term 3<br />AY2022/2023 Term 3</strong></NewsData>
             <NewsData>CS608 Recommender Systems</NewsData>
           </NewsRow>
           <NewsRow>
@@ -100,6 +100,18 @@ const Home = () => (
           </NewsRow>
         </NewsTable>
 
+      </Section>
+
+      <Section delay={0.3}>
+        <Heading as="h3" variant="section-title">
+          Service
+        </Heading>
+        <NewsTable>
+          <NewsRow>
+            <NewsData><strong>Journal Reviewer</strong></NewsData>
+            <NewsData>TORS 2024</NewsData>
+          </NewsRow>
+        </NewsTable>
       </Section>
 
       <Section delay={0.3}>
