@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import NavBar from '../navbar'
-import { Box, Container } from '@chakra-ui/react'
-import Footer from '../footer'
+import { Box, Container } from '@chakra-ui/react';
+import Head from 'next/head';
+import Footer from '../footer';
 import { headerIcon } from '../icons/header-icon.js';
+import NavBar from '../navbar';
 
 const Main = ({ children, router }) => {
   return (

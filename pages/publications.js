@@ -5,8 +5,8 @@ import {
     ListItem
 } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
-import Section from '../components/section'
 import Publication from '../components/publication'
+import Section from '../components/section'
 import publicationsData from '../data/publicationsData.json'
 
 const Publications = () => (

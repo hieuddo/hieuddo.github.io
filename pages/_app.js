@@ -1,9 +1,9 @@
-import Layout from '../components/layouts/main'
-import Fonts from '../components/fonts'
 import { AnimatePresence } from 'framer-motion'
-import Chakra from '../components/chakra'
 import { useEffect } from 'react'
-import config from '../config.json';
+import Chakra from '../components/chakra'
+import Fonts from '../components/fonts'
+import Layout from '../components/layouts/main'
+import config from '../config.json'
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'

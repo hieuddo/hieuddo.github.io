@@ -1,9 +1,9 @@
-import { Container, Badge, List, ListItem, Heading, Center } from '@chakra-ui/react'
-import { Title, Meta } from '../../components/blog'
-import Layout from '../../components/layouts/article'
+import { Badge, Center, Container, Heading, List, ListItem } from '@chakra-ui/react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import { Meta, Title } from '../../components/blog'
+import Layout from '../../components/layouts/article'
 
 
 const Blog = ({ data }) => {

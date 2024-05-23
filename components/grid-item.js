@@ -1,7 +1,7 @@
-import NextLink from 'next/link'
-import Image from 'next/image'
-import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
-import { Global } from '@emotion/react'
+import { Box, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
+import { Global } from '@emotion/react';
+import Image from 'next/image';
+import NextLink from 'next/link';
 const thumbnailBlurDataURL = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTI1IDMwTDEyNSAxMjV6Ii8+PC9zdmc+";
 
 

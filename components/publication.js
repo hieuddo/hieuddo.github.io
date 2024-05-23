@@ -1,7 +1,7 @@
-import { Box, Text, Link, Button } from '@chakra-ui/react'
+import { Box, Button, Link, Text } from '@chakra-ui/react'
 import { AiFillFilePdf } from 'react-icons/ai'
-import { SiAcm } from 'react-icons/si'
 import { IoLogoGithub } from 'react-icons/io5'
+import { SiAcm } from 'react-icons/si'
 
 const Publication = ({ paperName, authors, conferenceName, time, pdf, DOI, code }) => (
     <Box borderRadius="lg" overflow="hidden" p="4">

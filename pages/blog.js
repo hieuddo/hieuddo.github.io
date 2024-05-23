@@ -1,7 +1,7 @@
 import { Container, Heading, SimpleGrid } from '@chakra-ui/react';
+import { BlogGridItem } from '../components/grid-item';
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
-import { BlogGridItem } from '../components/grid-item';
 import { getBlogData } from '../lib/fetchBlogData';
 
 export const getStaticProps = async () => {

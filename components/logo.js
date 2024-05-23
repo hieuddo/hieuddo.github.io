@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Text, useColorModeValue } from '@chakra-ui/react'
-import PageHeaderIcon from './icons/header-icon'
 import styled from '@emotion/styled'
+import Link from 'next/link'
+import PageHeaderIcon from './icons/header-icon'
 
 const LogoBox = styled.span`
   font-weight: bold;

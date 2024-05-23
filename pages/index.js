@@ -56,7 +56,7 @@ const Home = () => (
           Xin chào (Hello)!
           I am currently a PhD candidate at <Link href="https://preferred.ai/" target="_blank">Preferred.AI</Link> and SMU School of Computing and Information Systems, advised by <Link href="https://www.hadylauw.com/" target="_blank">Prof. Hady W. Lauw</Link>. Previously, I obtained my B.Sc. degree in Computer Science at University of Engineering and Technology, Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and <Link href="https://sites.google.com/view/trongld" target="_blank">Dr. Duc-Trong Le</Link>.
           <br /> <br />
-          My primary area of research revolves around the formulation and solution of real-world recommender systems. I am particularly interested in topics such as continual learning for recommender systems and streaming session-based recommendation systems.
+          My primary area of research revolves around the formulation and solution of dynamic real-world recommender systems, including session-based, cross-domain, multi-task, and continual learning settings for recommendations.
         </Paragraph>
 
       </Section>
@@ -66,6 +66,15 @@ const Home = () => (
           News
         </Heading>
         <NewsTable>
+          <NewsRow>
+            <NewsData><strong>2024.05</strong></NewsData>
+            <NewsData>Volunteered at The Web Conference 2024 in Singapore</NewsData>
+          </NewsRow>
+          <NewsRow>
+            <NewsData><strong>2023.09</strong></NewsData>
+            <NewsData>Attended and presented poster at RecSys'2023 in Singapore. <Link href="https://preferred.ai/recsys-2023-in-singapore/" target="_blank">Blog post.</Link>
+            </NewsData>
+          </NewsRow>
           <NewsRow>
             <NewsData><strong>2023.07.22</strong></NewsData>
             <NewsData>Paper accepted at RecSys-23, Late-Breaking Results (LBR) track, titled “Continual Collaborative Filtering Through Gradient Alignment”</NewsData>
@@ -104,7 +113,7 @@ const Home = () => (
 
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          Service
+          Academic Service
         </Heading>
         <NewsTable>
           <NewsRow>
