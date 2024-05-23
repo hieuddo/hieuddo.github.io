@@ -5,7 +5,7 @@ import PageHeaderIcon from './icons/header-icon'
 
 const LogoBox = styled.span`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   display: inline-flex;
   align-items: center;
   height: 30px;
@@ -29,9 +29,10 @@ const Logo = () => {
         <PageHeaderIcon />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-          fontFamily='M PLUS Rounded 1c", sans-serif'
+          fontFamily='San Francisco Pro'
           fontWeight="bold"
-          ml={3}
+          ml={2}
+          mt={1.5}
         >
           Jaime Hieu Do
         </Text>
