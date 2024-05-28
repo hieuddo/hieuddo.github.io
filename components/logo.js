@@ -29,10 +29,9 @@ const Logo = () => {
         <PageHeaderIcon />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-          fontFamily='San Francisco Pro'
+          fontFamily='Helvetica Neue'
           fontWeight="bold"
           ml={2}
-          mt={1.5}
         >
           Jaime Hieu Do
         </Text>
