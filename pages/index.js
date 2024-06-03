@@ -100,12 +100,12 @@ const Home = () => (
         </Heading>
         <NewsTable>
           <NewsRow>
-            <NewsData><strong>AY2023/2024 Term 3<br />AY2022/2023 Term 3</strong></NewsData>
-            <NewsData>CS608 Recommender Systems</NewsData>
+            <NewsData><strong>AY2024/2025 Term 1<br />AY2022/2023 Term 1</strong></NewsData>
+            <NewsData>IS712 Machine Learning</NewsData>
           </NewsRow>
           <NewsRow>
-            <NewsData><strong>AY2022/2023 Term 1</strong></NewsData>
-            <NewsData>IS712 Machine Learning</NewsData>
+            <NewsData><strong>AY2023/2024 Term 3<br />AY2022/2023 Term 3</strong></NewsData>
+            <NewsData>CS608 Recommender Systems</NewsData>
           </NewsRow>
         </NewsTable>
 
