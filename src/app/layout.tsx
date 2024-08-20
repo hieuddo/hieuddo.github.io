@@ -72,7 +72,7 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-HK6WMEG9LB" />
+      <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
     </html>
   );
 }
