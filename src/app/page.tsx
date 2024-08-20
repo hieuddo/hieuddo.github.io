@@ -12,12 +12,6 @@ import getBlogs from "./getBlogs";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export const metadata = {
-  icons: {
-    icon: "/monkas.svg",
-  },
-};
-
 export default function Page() {
   const blogposts = getBlogs();
 
