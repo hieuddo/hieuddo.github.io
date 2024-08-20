@@ -72,7 +72,7 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.GTAG_ID || ""} />
+      <GoogleAnalytics gaId="G-HK6WMEG9LB" />
     </html>
   );
 }
