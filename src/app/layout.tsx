@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
@@ -71,6 +72,7 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.GTAG_ID || ""} />
     </html>
   );
 }
