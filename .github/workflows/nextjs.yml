@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g pnpm
-          pnpm installl
+          pnpm install
       - name: Build with Next.js
         run: pnpm build
       - name: Upload artifact
