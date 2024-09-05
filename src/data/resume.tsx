@@ -44,13 +44,7 @@ export const DATA = {
         icon: Icons.linkedin,
         navbar: true,
       },
-      X: {
-        name: "X",
-        url: "https://twitter.com/hieeudd",
-        icon: Icons.x,
-        navbar: true,
-      },
-      email: {
+      Email: {
         name: "Send Email",
         url: "mailto:dinhhieu.do.2020@smu.edu.sg",
         icon: Icons.email,
