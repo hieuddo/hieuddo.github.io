@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Jaime Hieu Do",
@@ -25,7 +25,7 @@ export const DATA = {
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/publication", icon: NotebookIcon, label: "Publication" },
   ],
 
   contact: {
@@ -128,7 +128,7 @@ export const DATA = {
       school: "SMU School of Computing and Information Systems",
       href: "https://computing.smu.edu.sg/",
       degree: "PhD in Computer Science",
-      logoUrl: "/smu.svg",
+      logoUrl: "/work/smu.svg",
       start: "2020",
       end: "",
     },
@@ -136,7 +136,7 @@ export const DATA = {
       school: "VNU University of Engineering and Technology",
       href: "https://uet.vnu.edu.vn/",
       degree: "BSc in Computer Science",
-      logoUrl: "/uet.png",
+      logoUrl: "/work/uet.png",
       start: "2016",
       end: "2020",
     },
