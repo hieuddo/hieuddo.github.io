@@ -47,7 +47,7 @@ const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
   );
 };
 
-export function PubCard({ title, authors, dates, venue, image, links }: Props) {
+function PubCard({ title, authors, dates, venue, image, links }: Props) {
   return (
     <li className="relative ml-10 py-4">
       {image && (
