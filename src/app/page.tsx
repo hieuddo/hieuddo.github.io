@@ -78,7 +78,7 @@ export default function Page() {
           {DATA.news.map((news, id) => (
             <BlurFade
               key={news.company}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+              delay={BLUR_FADE_DELAY * 7 + id * 0.05}
             >
               <ResumeCard
                 key={news.company}
@@ -100,7 +100,7 @@ export default function Page() {
 
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
@@ -134,7 +134,7 @@ export default function Page() {
               {DATA.teaching.map((project, id) => (
                 <BlurFade
                   key={project.title + project.dates}
-                  delay={BLUR_FADE_DELAY * 11 + id * 0.05}
+                  delay={BLUR_FADE_DELAY * 10 + id * 0.05}
                 >
                   <TeachingCard
                     title={project.title}
@@ -153,13 +153,13 @@ export default function Page() {
 
       <section id="service">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <h2 className="text-xl font-bold">Academic Service</h2>
           </BlurFade>
           {DATA.service.map((service, id) => (
             <BlurFade
               key={service.type}
-              delay={BLUR_FADE_DELAY * 13 + id * 0.05}
+              delay={BLUR_FADE_DELAY * 11 + id * 0.05}
             >
               <ServiceCard type={service.type} description={service.venues} />
             </BlurFade>
@@ -169,11 +169,11 @@ export default function Page() {
 
       <section id="blogs">
         <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 14}>
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold tracking-tighter sm:text-2xl">
-                  Check out my blog posts
+                  Check out my personal blog posts
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Explore, experience, and enrich.
@@ -185,7 +185,7 @@ export default function Page() {
             {blogposts.map((blog, id) => (
               <BlurFade
                 key={blog.title}
-                delay={BLUR_FADE_DELAY * 15 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
               >
                 <ProjectCard
                   href={blog.href}

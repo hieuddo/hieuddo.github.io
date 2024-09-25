@@ -30,8 +30,13 @@ export const DATA = {
 
   contact: {
     email: "dinhhieu.do.2020@smu.edu.sg",
-    // tel: "",
     social: {
+      "Google Scholar": {
+        name: "Google Scholar",
+        url: "https://scholar.google.com/citations?user=IIHEqm0AAAAJ",
+        icon: Icons.ggscholar,
+        navbar: true,
+      },
       GitHub: {
         name: "GitHub",
         url: "https://github.com/hieuddo",
