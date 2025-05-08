@@ -60,6 +60,18 @@ export const DATA = {
 
   news: [
     {
+      company: "Paper accepted at SIGKDD Explorations. Read here!",
+      href: "/papers/sigkddExp2025.pdf",
+      badges: [],
+      location: "",
+      title:
+        "Dual-Target Disjointed Cross-Domain Recommendation Mediated via Latent User Preferences",
+      logoUrl: "",
+      start: "May 2025",
+      end: "",
+      description: "",
+    },
+    {
       company: "Volunteered at The Web Conference 2024 (WWW'24)",
       href: "",
       badges: [],

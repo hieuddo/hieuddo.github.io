@@ -1,5 +1,22 @@
 [
   {
+    "year": "2025",
+    "publications": [
+      {
+        "title": "Dual-Target Disjointed Cross-Domain Recommendation Mediated via Latent User Preferences",
+        "authors": "Jaime Hieu Do and Hady W. Lauw",
+        "time": "To appear",
+        "venue": "SIGKDD Explorations",
+        "image": "",
+        "links": {
+          "DOI": "",
+          "pdf": "/papers/sigkddExp2025.pdf",
+          "code": ""
+        }
+      }
+    ]
+  },
+  {
     "year": "2023",
     "publications": [
       {
