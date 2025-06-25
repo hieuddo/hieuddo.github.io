@@ -10,7 +10,8 @@
         "image": "",
         "links": {
           "DOI": "",
-          "pdf": "/papers/sigkddExp2025.pdf",
+          "pdf": "https://kdd.org/exploration_files/p52-CDR.pdf",
+          "pdff": "/papers/sigkddExp2025.pdf",
           "code": ""
         }
       }
