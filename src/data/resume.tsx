@@ -26,6 +26,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/publication", icon: NotebookIcon, label: "Publication" },
+    { href: "/Resume.pdf", icon: Icons.resume, label: "Resume" },
   ],
 
   contact: {
@@ -61,7 +62,7 @@ export const DATA = {
   news: [
     {
       company: "Paper accepted at SIGKDD Explorations. Read here!",
-      href: "/papers/sigkddExp2025.pdf",
+      href: "https://kdd.org/exploration_files/p52-CDR.pdf",
       badges: [],
       location: "",
       title:
