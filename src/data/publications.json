@@ -3,6 +3,18 @@
     "year": "2025",
     "publications": [
       {
+        "title": "Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences",
+        "authors": "Jaime Hieu Do, Trung-Hoang Le, and Hady W. Lauw",
+        "time": "Under review",
+        "venue": "",
+        "image": "",
+        "links": {
+          "DOI": "",
+          "pdf": "/papers/CoVE.pdf",
+          "code": "https://github.com/PreferredAI/CoVE"
+        }
+      },
+      {
         "title": "Dual-Target Disjointed Cross-Domain Recommendation Mediated via Latent User Preferences",
         "authors": "Jaime Hieu Do and Hady W. Lauw",
         "time": "To appear",
