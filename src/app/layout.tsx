@@ -65,14 +65,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
+        <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
     </html>
   );
 }
