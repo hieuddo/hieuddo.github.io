@@ -61,6 +61,18 @@ export const DATA = {
 
   news: [
     {
+      company:
+        "Paper's out, titled 'Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences'. Read here!",
+      href: "/papers/CoVE.pdf",
+      badges: [],
+      location: "",
+      title: "",
+      logoUrl: "",
+      start: "June 2025",
+      end: "",
+      description: "",
+    },
+    {
       company: "Paper accepted at SIGKDD Explorations. Read here!",
       href: "https://kdd.org/exploration_files/p52-CDR.pdf",
       badges: [],
