@@ -63,7 +63,7 @@ export const DATA = {
     {
       company:
         "Paper's out, titled 'Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences'. Read here!",
-      href: "/papers/CoVE.pdf",
+      href: "https://arxiv.org/pdf/2506.23170",
       badges: [],
       location: "",
       title: "",

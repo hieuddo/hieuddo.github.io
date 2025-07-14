@@ -10,7 +10,7 @@
         "image": "",
         "links": {
           "DOI": "",
-          "pdf": "/papers/CoVE.pdf",
+          "pdf": "https://arxiv.org/pdf/2506.23170",
           "code": "https://github.com/PreferredAI/CoVE"
         }
       },
