@@ -26,7 +26,6 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/publication", icon: NotebookIcon, label: "Publication" },
-    { href: "/Resume.pdf", icon: Icons.resume, label: "Resume" },
   ],
 
   contact: {
@@ -54,6 +53,12 @@ export const DATA = {
         name: "Send Email",
         url: "mailto:dinhhieu.do.2020@smu.edu.sg",
         icon: Icons.email,
+        navbar: true,
+      },
+      Resume: {
+        name: "Resume",
+        url: "/Resume.pdf",
+        icon: Icons.resume,
         navbar: true,
       },
     },
