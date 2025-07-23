@@ -15,12 +15,13 @@ export const DATA = {
     "Recommendation Systems",
     "Cross-Domain Recommendations",
     "Sequential Recommendations",
-    "Session-Based",
-    "Session-Aware",
-    "Next-Item",
-    "Next-Basket",
-    "Multi-Task",
+    // "Session-Based",
+    // "Session-Aware",
+    // "Next-Item",
+    // "Next-Basket",
+    "Multi-Task Learning",
     "Continual Learning",
+    "Mixture of Experts",
   ],
 
   navbar: [
@@ -66,8 +67,20 @@ export const DATA = {
 
   news: [
     {
-      company:
-        "Paper's out, titled 'Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences'. Read here!",
+      content:
+        'I successfully defended my PhD dissertation, titled "Modeling Multiple Tasks in Recommendation Systems". Read here!',
+      href: "/dissertation.pdf",
+      badges: [],
+      location: "",
+      title: "",
+      logoUrl: "",
+      start: "11 July 2025",
+      end: "",
+      description: "",
+    },
+    {
+      content:
+        'Paper\'s out, titled "Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences". Read here!',
       href: "https://arxiv.org/pdf/2506.23170",
       badges: [],
       location: "",
@@ -78,7 +91,7 @@ export const DATA = {
       description: "",
     },
     {
-      company: "Paper accepted at SIGKDD Explorations. Read here!",
+      content: "Paper accepted at SIGKDD Explorations. Read here!",
       href: "https://kdd.org/exploration_files/p52-CDR.pdf",
       badges: [],
       location: "",
@@ -90,18 +103,19 @@ export const DATA = {
       description: "",
     },
     {
-      company: "Volunteered at The Web Conference 2024 (WWW'24)",
-      href: "",
+      content:
+        "Volunteered at The Web Conference 2024 (WWW'24). Read blog post!",
+      href: "https://preferred.ai/the-web-conference-2024-in-singapore/",
       badges: [],
       location: "",
       title: "",
       logoUrl: "",
       start: "May 2024",
       end: "",
-      description: "Singapore",
+      description: "",
     },
     {
-      company: "Attended and presented poster at RecSys'2023. Blog post here!",
+      content: "Attended and presented poster at RecSys'2023. Blog post here!",
       href: "https://preferred.ai/recsys-2023-in-singapore/",
       badges: [],
       location: "",
@@ -112,7 +126,7 @@ export const DATA = {
       description: "",
     },
     {
-      company:
+      content:
         "Paper accepted at RecSys-23, Late-Breaking Results (LBR) track. Read here!",
       href: "/papers/recsys23lbr.pdf",
       badges: [],
@@ -124,7 +138,7 @@ export const DATA = {
       description: "",
     },
     {
-      company: "Passed Qualifying Exam",
+      content: "Passed Qualifying Exam",
       href: "",
       badges: [],
       location: "",
@@ -135,26 +149,26 @@ export const DATA = {
       description: " ",
     },
     {
-      company: "Started Ph.D. journey",
+      content: "Started my Ph.D. journey",
       href: "",
       badges: [],
       location: "",
-      title: "",
+      title: "SMU School of Computing and Information Systems",
       logoUrl: "",
       start: "Aug 2020",
       end: "",
-      description: "SMU School of Computing and Information Systems",
+      description: "",
     },
     {
-      company: "Graduated from VNU-UET",
+      content: "Graduated from VNU-UET",
       href: "",
       badges: [],
       location: "",
-      title: "",
+      title: "Summa Cum Laude, Excellent Thesis Award",
       logoUrl: "",
       start: "Jul 2020",
       end: "",
-      description: "Summa Cum Laude, Excellent Thesis Award",
+      description: "",
     },
   ],
 
@@ -189,7 +203,7 @@ export const DATA = {
     },
     {
       title: "Recommender Systems - CS608",
-      dates: "AY2023/2024, AY2022/2023",
+      dates: "AY2024/2025, AY2023/2024, AY2022/2023",
       role: "Teaching Assistant",
       description:
         "Consulted on all aspects of hands-on experiments, project implementation, and the final project.",

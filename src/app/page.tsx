@@ -77,14 +77,14 @@ export default function Page() {
           </BlurFade>
           {DATA.news.map((news, id) => (
             <BlurFade
-              key={news.company}
+              key={news.content}
               delay={BLUR_FADE_DELAY * 7 + id * 0.05}
             >
               <ResumeCard
-                key={news.company}
+                key={news.content}
                 logoUrl={news.logoUrl}
-                altText={news.company}
-                title={news.company}
+                altText={news.content}
+                title={news.content}
                 subtitle={news.title}
                 href={news.href}
                 badges={news.badges}
