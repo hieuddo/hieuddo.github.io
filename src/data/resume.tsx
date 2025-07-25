@@ -193,7 +193,7 @@ export const DATA = {
 
   teaching: [
     {
-      title: "Machine Learning - IS712",
+      title: "Machine Learning - CS712",
       dates: "AY2024/2025, AY2022/2023",
       role: "Teaching Assistant",
       description:
