@@ -7,9 +7,9 @@ export const DATA = {
   url: "https://hieuddo.github.io",
   location: "Singapore",
   locationLink: "https://maps.app.goo.gl/j4vQ1ED92G9Fohu6A",
-  description: "PhD Candidate in Computer Science",
+  description: "Ph.D. in Computer Science",
   summary:
-    "Xin chào (Hello)! I am currently a PhD candidate at [Preferred.AI](https://preferred.ai/) and SMU School of Computing and Information Systems, advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Previously, I obtained my B.Sc. degree in Computer Science at University of Engineering and Technology, Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My primary area of research revolves around the formulation and solution of dynamic real-world recommender systems.",
+    "Xin chào (Hello)! I am a recent Ph.D. graduate from SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world recommender systems.",
   avatarUrl: "/me.jpg",
   skills: [
     "Recommendation Systems",
@@ -179,7 +179,7 @@ export const DATA = {
       degree: "PhD in Computer Science",
       logoUrl: "/work/smu.svg",
       start: "2020",
-      end: "",
+      end: "2025",
     },
     {
       school: "VNU University of Engineering and Technology",
