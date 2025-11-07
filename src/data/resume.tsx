@@ -7,7 +7,7 @@ export const DATA = {
   url: "https://hieuddo.github.io",
   location: "Singapore",
   locationLink: "https://maps.app.goo.gl/j4vQ1ED92G9Fohu6A",
-  description: "Ph.D. in Computer Science",
+  description: "Research Scientist",
   summary:
     "Xin chào (Hello)! I am a recent Ph.D. graduate from SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world recommender systems.",
   avatarUrl: "/me.jpg",
@@ -30,7 +30,7 @@ export const DATA = {
   ],
 
   contact: {
-    email: "dinhhieu.do.2020@smu.edu.sg",
+    email: "dinhhieudo@smu.edu.sg",
     social: {
       "Google Scholar": {
         name: "Google Scholar",
@@ -52,7 +52,7 @@ export const DATA = {
       },
       Email: {
         name: "Send Email",
-        url: "mailto:dinhhieu.do.2020@smu.edu.sg",
+        url: "mailto:dinhhieudo@smu.edu.sg",
         icon: Icons.email,
         navbar: true,
       },
@@ -66,6 +66,18 @@ export const DATA = {
   },
 
   news: [
+    {
+      content:
+        "I started my postdoctoral research at Preferred.AI as a Research Scientist!",
+      href: "",
+      badges: [],
+      location: "",
+      title: "",
+      logoUrl: "",
+      start: "3 November 2025",
+      end: "",
+      description: " ",
+    },
     {
       content:
         'I successfully defended my PhD dissertation, titled "Modeling Multiple Tasks in Recommendation Systems". Read here!',
