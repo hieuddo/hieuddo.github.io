@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Card, CardHeader } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { Card, CardHeader } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { ChevronRightIcon } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
 interface ServiceCardProps {
   type: string;
@@ -22,7 +22,7 @@ export const ServiceCard = ({ type, description }: ServiceCardProps) => {
   };
 
   return (
-    <Link href={""} className="block cursor-pointer" onClick={handleClick}>
+    <Link href={''} className="block cursor-pointer" onClick={handleClick}>
       <Card className="flex">
         <div className="flex-grow ml-4 items-center flex-col group">
           <CardHeader>
@@ -31,8 +31,8 @@ export const ServiceCard = ({ type, description }: ServiceCardProps) => {
                 {type}
                 <ChevronRightIcon
                   className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
+                    'size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100',
+                    isExpanded ? 'rotate-90' : 'rotate-0'
                   )}
                 />
               </h3>
@@ -44,7 +44,7 @@ export const ServiceCard = ({ type, description }: ServiceCardProps) => {
               animate={{
                 opacity: isExpanded ? 1 : 0,
 
-                height: isExpanded ? "auto" : 0,
+                height: isExpanded ? 'auto' : 0,
               }}
               transition={{
                 duration: 0.7,

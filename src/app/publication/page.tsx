@@ -1,9 +1,9 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import publicationData from "@/data/publications.json";
-import { AiOutlineFilePdf } from "react-icons/ai";
-import { FaGithub } from "react-icons/fa";
-import { SiAcm } from "react-icons/si";
+import BlurFade from '@/components/magicui/blur-fade';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import publicationData from '@/data/publications.json';
+import { AiOutlineFilePdf } from 'react-icons/ai';
+import { FaGithub } from 'react-icons/fa';
+import { SiAcm } from 'react-icons/si';
 
 interface Links {
   DOI: string;
@@ -22,13 +22,13 @@ interface Props {
 
 const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
   const linkItems = [
-    { url: links.DOI, icon: <SiAcm />, label: "DOI" },
-    { url: links.pdf, icon: <AiOutlineFilePdf />, label: "PDF" },
-    { url: links.code, icon: <FaGithub />, label: "Code" },
+    { url: links.DOI, icon: <SiAcm />, label: 'DOI' },
+    { url: links.pdf, icon: <AiOutlineFilePdf />, label: 'PDF' },
+    { url: links.code, icon: <FaGithub />, label: 'Code' },
   ];
 
   return (
-    <div style={{ display: "flex", gap: "30px", marginLeft: "10px" }}>
+    <div style={{ display: 'flex', gap: '30px', marginLeft: '10px' }}>
       {linkItems.map(
         (link, index) =>
           link.url && (
@@ -37,7 +37,7 @@ const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ display: "flex", alignItems: "center", gap: "5px" }}
+              style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               {link.icon} {link.label}
             </a>
@@ -76,8 +76,8 @@ function PubCard({ title, authors, dates, venue, image, links }: Props) {
 }
 
 export const metadata = {
-  title: "Publication",
-  description: "Publication page",
+  title: 'Publication',
+  description: 'Publication page',
 };
 
 const BLUR_FADE_DELAY = 0.04;

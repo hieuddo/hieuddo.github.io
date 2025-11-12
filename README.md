@@ -28,14 +28,13 @@
    pnpm install
    ```
 
-   * If node is not installed:
-      ```bash
-      brew install nvm
-      brew install pnpm
-      nvm ls-remote --lts
-      nvm install 20.18.1
-      ```
-   
+   - If node is not installed:
+     ```bash
+     brew install nvm
+     brew install pnpm
+     nvm ls-remote --lts
+     nvm install 20.18.1
+     ```
 
 4. Start the local Server:
 

@@ -1,14 +1,14 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { ProjectCard } from "@/components/project-card";
-import { ResumeCard } from "@/components/resume-card";
-import { ServiceCard } from "@/components/service-card";
-import { TeachingCard } from "@/components/teaching-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { DATA } from "@/data/resume";
-import Markdown from "react-markdown";
-import getBlogs from "./getBlogs";
+import BlurFade from '@/components/magicui/blur-fade';
+import BlurFadeText from '@/components/magicui/blur-fade-text';
+import { ProjectCard } from '@/components/project-card';
+import { ResumeCard } from '@/components/resume-card';
+import { ServiceCard } from '@/components/service-card';
+import { TeachingCard } from '@/components/teaching-card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { DATA } from '@/data/resume';
+import Markdown from 'react-markdown';
+import getBlogs from './getBlogs';
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -116,7 +116,7 @@ export default function Page() {
                 title={education.school}
                 subtitle={education.degree}
                 period={`${education.start} - ${
-                  education.end ? education.end : "Present"
+                  education.end ? education.end : 'Present'
                 }`}
               />
             </BlurFade>

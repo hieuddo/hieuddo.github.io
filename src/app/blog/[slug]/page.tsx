@@ -1,18 +1,19 @@
-import { getBlogPosts, getPost } from "@/data/blog";
-import { DATA } from "@/data/resume";
-import { formatDate } from "@/lib/utils";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
+import { getBlogPosts, getPost } from '@/data/blog';
+import { DATA } from '@/data/resume';
+import { formatDate } from '@/lib/utils';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }): Promise<Metadata | undefined> {
-  let post = await getPost(params.slug);
+  const { slug } = await params;
+  let post = await getPost(slug);
 
   let {
     title,
@@ -28,7 +29,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `${DATA.url}/blog/${post.slug}`,
       images: [
@@ -38,7 +39,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
@@ -57,11 +58,12 @@ export async function generateStaticParams() {
 export default async function Blog({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  let post = await getPost(params.slug);
+  const { slug } = await params;
+  let post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -74,8 +76,8 @@ export default async function Blog({
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
@@ -85,7 +87,7 @@ export default async function Blog({
               : `${DATA.url}/og?title=${post.metadata.title}`,
             url: `${DATA.url}/blog/${post.slug}`,
             author: {
-              "@type": "Person",
+              '@type': 'Person',
               name: DATA.name,
             },
           }),
