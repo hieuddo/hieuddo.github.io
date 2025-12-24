@@ -7,7 +7,7 @@ import { SiAcm } from 'react-icons/si';
 
 interface Links {
   DOI: string;
-  pdf: string;
+  pdf: string | string[];
   code: string;
 }
 
@@ -21,27 +21,44 @@ interface Props {
 }
 
 const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
-  const linkItems = [
-    { url: links.DOI, icon: <SiAcm />, label: 'DOI' },
-    { url: links.pdf, icon: <AiOutlineFilePdf />, label: 'PDF' },
-    { url: links.code, icon: <FaGithub />, label: 'Code' },
-  ];
+  const pdfLinks = Array.isArray(links.pdf)
+    ? links.pdf
+    : links.pdf
+      ? [links.pdf]
+      : [];
 
   return (
     <div style={{ display: 'flex', gap: '30px', marginLeft: '10px' }}>
-      {linkItems.map(
-        (link, index) =>
-          link.url && (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-            >
-              {link.icon} {link.label}
-            </a>
-          )
+      {links.DOI && (
+        <a
+          href={links.DOI}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+        >
+          <SiAcm /> DOI
+        </a>
+      )}
+      {pdfLinks.map((pdfUrl, index) => (
+        <a
+          key={`pdf-${index}`}
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+        >
+          <AiOutlineFilePdf /> PDF
+        </a>
+      ))}
+      {links.code && (
+        <a
+          href={links.code}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+        >
+          <FaGithub /> Code
+        </a>
       )}
     </div>
   );

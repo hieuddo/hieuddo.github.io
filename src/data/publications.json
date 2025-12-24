@@ -22,8 +22,10 @@
         "image": "",
         "links": {
           "DOI": "https://dl.acm.org/doi/10.1145/3748239.3748245",
-          "pdf": "https://kdd.org/exploration_files/p52-CDR.pdf",
-          "pdff": "/papers/sigkddExp2025.pdf",
+          "pdf": [
+            "https://kdd.org/exploration_files/p52-CDR.pdf",
+            "/papers/sigkddExp2025.pdf"
+          ],
           "code": ""
         }
       }

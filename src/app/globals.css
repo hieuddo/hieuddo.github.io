@@ -143,3 +143,21 @@ code[data-line-numbers-max-digits='2'] > [data-line]::before {
 code[data-line-numbers-max-digits='3'] > [data-line]::before {
   width: 3rem;
 }
+
+/* Figure and figcaption styling */
+.prose figure.image-figure {
+  margin: 2rem 0;
+}
+
+.prose figure.image-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  text-align: center;
+  font-style: italic;
+}
+
+.prose img {
+  border-radius: var(--radius);
+}

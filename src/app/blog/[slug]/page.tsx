@@ -3,6 +3,7 @@ import { DATA } from '@/data/resume';
 import { formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { Suspense } from 'react';
 
 export async function generateMetadata({
@@ -103,6 +104,35 @@ export default async function Blog({
           </p>
         </Suspense>
       </div>
+      {post.metadata.image && (
+        <Image
+          src={post.metadata.image}
+          alt={post.metadata.title}
+          width={1200}
+          height={630}
+          className="rounded-lg mb-8 w-full object-cover"
+        />
+      )}
+      {post.metadata.summary && (
+        <p className="text-neutral-600 dark:text-neutral-400 mb-8 italic">
+          {post.metadata.summary}
+        </p>
+      )}
+      {post.metadata.tags && (
+        <div className="flex flex-wrap gap-2 mb-8">
+          {(Array.isArray(post.metadata.tags)
+            ? post.metadata.tags
+            : (post.metadata.tags as string).split(',').map((t) => t.trim())
+          ).map((tag: string) => (
+            <span
+              key={tag}
+              className="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded text-xs"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}

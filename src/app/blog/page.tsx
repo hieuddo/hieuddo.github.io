@@ -1,6 +1,6 @@
 import BlurFade from '@/components/magicui/blur-fade';
 import { getBlogPosts } from '@/data/blog';
-import Link from 'next/link';
+import { ProjectCard } from '@/components/project-card';
 
 export const metadata = {
   title: 'Blog',
@@ -19,30 +19,31 @@ export default async function BlogPage() {
           Personal Blogs
         </h1>
       </BlurFade>
-      {posts
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
-            <Link
-              className="flex flex-col space-y-1 mb-4"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="w-full flex flex-col">
-                <p className="tracking-tight">{post.metadata.title}</p>
-                <p className="h-6 text-xs text-muted-foreground">
-                  {post.metadata.publishedAt}
-                </p>
-              </div>
-            </Link>
-          </BlurFade>
-        ))}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+        {posts
+          .sort((a, b) => {
+            if (
+              new Date(a.metadata.publishedAt) >
+              new Date(b.metadata.publishedAt)
+            ) {
+              return -1;
+            }
+            return 1;
+          })
+          .map((post, id) => (
+            <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
+              <ProjectCard
+                href={`/blog/${post.slug}`}
+                key={post.slug}
+                title={post.metadata.title}
+                description={post.metadata.summary}
+                dates={post.metadata.publishedAt}
+                tags={post.metadata.tags || []}
+                image={post.metadata.image}
+              />
+            </BlurFade>
+          ))}
+      </div>
     </section>
   );
 }

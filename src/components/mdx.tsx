@@ -24,6 +24,7 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomLink(props: any) {
   let href = props.href;
 
@@ -42,6 +43,7 @@ function CustomLink(props: any) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function RoundedImage(props: any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }

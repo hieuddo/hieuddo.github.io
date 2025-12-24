@@ -7,16 +7,69 @@ import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
+import { visit } from 'unist-util-visit';
 
-type Metadata = {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image?: string;
-};
+
 
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+}
+
+function rehypeFigure() {
+  return (tree: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    visit(tree, 'element', (node: any) => {
+      if (node.tagName === 'p') {
+        const elementChildren = node.children.filter(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (c: any) => c.type === 'element'
+        );
+
+        if (
+          elementChildren.length === 1 &&
+          elementChildren[0].tagName === 'img'
+        ) {
+          const img = elementChildren[0];
+          const alt = img.properties.alt;
+
+          if (alt && alt.trim()) {
+            node.tagName = 'figure';
+            node.properties.className = (
+              node.properties.className || []
+            ).concat('image-figure');
+
+            const captionChildren: any[] = [];
+            const parts = alt.split(/<br\s*\/?>/i);
+
+            parts.forEach((part: string, index: number) => {
+              if (part) {
+                captionChildren.push({
+                  type: 'text',
+                  value: part,
+                });
+              }
+
+              if (index < parts.length - 1) {
+                captionChildren.push({
+                  type: 'element',
+                  tagName: 'br',
+                  properties: {},
+                  children: [],
+                });
+              }
+            });
+
+            node.children.push({
+              type: 'element',
+              tagName: 'figcaption',
+              properties: {},
+              children: captionChildren,
+            });
+          }
+        }
+      }
+    });
+  };
 }
 
 export async function markdownToHTML(markdown: string) {
@@ -24,6 +77,7 @@ export async function markdownToHTML(markdown: string) {
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypeFigure)
     .use(rehypePrettyCode, {
       // https://rehype-pretty.pages.dev/#usage
       theme: {
