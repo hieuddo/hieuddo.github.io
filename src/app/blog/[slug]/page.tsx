@@ -5,8 +5,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Suspense } from 'react';
-import parse, { Element } from 'html-react-parser';
+import parse, { Element, domToReact, DOMNode } from 'html-react-parser';
 import MarkdownImage from '@/components/markdown-image';
+import MarkdownVideo from '@/components/markdown-video';
 
 export async function generateMetadata({
   params,
@@ -148,6 +149,26 @@ export default async function Blog({
                     width={width}
                     height={height}
                   />
+                );
+              }
+            } else if (
+              domNode instanceof Element &&
+              domNode.tagName === 'video'
+            ) {
+              const { src, width, height, ...props } = domNode.attribs;
+              // If the mdx file uses <source> tags, `src` might be on them, not the video tag.
+              // We just pass the children (which includes source tags) to MarkdownVideo via domToReact.
+
+              if (src || (domNode.children && domNode.children.length > 0)) {
+                return (
+                  <MarkdownVideo
+                    src={src}
+                    width={width}
+                    height={height}
+                    {...props}
+                  >
+                    {domToReact(domNode.children as DOMNode[])}
+                  </MarkdownVideo>
                 );
               }
             }

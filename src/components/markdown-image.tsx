@@ -27,7 +27,7 @@ export default function MarkdownImage({
         alt={alt || ''}
         width={w}
         height={h}
-        className={cn('rounded-lg my-8 w-full object-cover', className)}
+        className={cn('rounded-lg mt-8 mb-2 w-full object-cover', className)}
         {...props}
       />
     );
@@ -47,7 +47,7 @@ export default function MarkdownImage({
     <img
       src={src}
       alt={alt}
-      className={cn('rounded-lg my-8 w-full object-cover', className)}
+      className={cn('rounded-lg mt-8 mb-2 w-full object-cover', className)}
       {...props}
     />
   );

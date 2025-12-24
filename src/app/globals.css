@@ -161,3 +161,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .prose img {
   border-radius: var(--radius);
 }
+.prose p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
