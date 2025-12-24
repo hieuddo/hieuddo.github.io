@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import Markdown from 'react-markdown';
+import MarkdownImage from './markdown-image';
 
 interface Props {
   title: string;
@@ -80,7 +81,13 @@ export function ProjectCard({
             {link?.replace('https://', '').replace('www.', '').replace('/', '')}
           </div>
           <div className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            <Markdown>{description}</Markdown>
+            <Markdown
+              components={{
+                img: MarkdownImage as any,
+              }}
+            >
+              {description}
+            </Markdown>
           </div>
         </div>
       </CardHeader>

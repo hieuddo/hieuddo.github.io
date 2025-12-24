@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { DATA } from '@/data/resume';
 import Markdown from 'react-markdown';
+import MarkdownImage from '@/components/markdown-image';
 import getBlogs from './getBlogs';
 
 const BLUR_FADE_DELAY = 0.04;
@@ -50,7 +51,13 @@ export default function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-            <Markdown>{DATA.summary}</Markdown>
+            <Markdown
+              components={{
+                img: MarkdownImage as any,
+              }}
+            >
+              {DATA.summary}
+            </Markdown>
           </div>
         </BlurFade>
       </section>

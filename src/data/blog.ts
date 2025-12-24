@@ -1,4 +1,5 @@
 import fs from 'fs';
+import imageSize from 'image-size';
 import matter from 'gray-matter';
 import path from 'path';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -13,6 +14,29 @@ import { visit } from 'unist-util-visit';
 
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+}
+
+
+function rehypeImageMetadata() {
+  return (tree: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    visit(tree, 'element', (node: any) => {
+      if (node.tagName === 'img' && node.properties.src) {
+        const { src } = node.properties;
+        if (src.startsWith('/')) {
+          try {
+            const imagePath = path.join(process.cwd(), 'public', src);
+            const buffer = fs.readFileSync(imagePath);
+            const dimensions = imageSize(buffer);
+            node.properties.width = dimensions.width;
+            node.properties.height = dimensions.height;
+          } catch (e) {
+            console.error(`Error processing image ${src}: ${e}`);
+          }
+        }
+      }
+    });
+  };
 }
 
 function rehypeFigure() {
@@ -72,11 +96,13 @@ function rehypeFigure() {
   };
 }
 
+
 export async function markdownToHTML(markdown: string) {
   const p = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypeImageMetadata)
     .use(rehypeFigure)
     .use(rehypePrettyCode, {
       // https://rehype-pretty.pages.dev/#usage

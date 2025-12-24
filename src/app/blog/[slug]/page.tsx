@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import parse, { Element } from 'html-react-parser';
+import MarkdownImage from '@/components/markdown-image';
 
 export async function generateMetadata({
   params,
@@ -133,10 +135,25 @@ export default async function Blog({
           ))}
         </div>
       )}
-      <article
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
+      <article className="prose dark:prose-invert">
+        {parse(post.source, {
+          replace: (domNode) => {
+            if (domNode instanceof Element && domNode.tagName === 'img') {
+              const { src, alt, width, height } = domNode.attribs;
+              if (src.startsWith('/')) {
+                return (
+                  <MarkdownImage
+                    src={src}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                  />
+                );
+              }
+            }
+          },
+        })}
+      </article>
     </section>
   );
 }
