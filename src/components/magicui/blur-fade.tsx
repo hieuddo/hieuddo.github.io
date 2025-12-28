@@ -31,6 +31,7 @@ const BlurFade = ({
   const ref = useRef(null);
   const inViewResult = useInView(ref, {
     once: true,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     margin: inViewMargin as any,
   });
   const isInView = !inView || inViewResult;

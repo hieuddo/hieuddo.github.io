@@ -10,7 +10,7 @@ export const DATA = {
   description: 'Research Scientist',
   summary:
     'Xin chào (Hello)! I am currently a Research Scientist at [Preferred.AI](https://preferred.ai/) where I work on user understanding and personalization for financial services. I completed my Ph.D. at SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world recommender systems.',
-  avatarUrl: '/me.jpg',
+  avatarUrl: '/me.webp',
   skills: [
     'Recommendation Systems',
     'Cross-Domain Recommendations',
@@ -197,7 +197,7 @@ export const DATA = {
       school: 'VNU University of Engineering and Technology',
       href: 'https://uet.vnu.edu.vn/',
       degree: 'BSc in Computer Science',
-      logoUrl: '/work/uet.png',
+      logoUrl: '/work/uet.webp',
       start: '2016',
       end: '2020',
     },

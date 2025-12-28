@@ -83,7 +83,7 @@ export function ProjectCard({
           <div className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
             <Markdown
               components={{
-                img: MarkdownImage as any,
+                img: MarkdownImage,
               }}
             >
               {description}

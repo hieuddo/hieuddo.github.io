@@ -18,6 +18,7 @@ function getMDXFiles(dir: string) {
 
 
 function rehypeImageMetadata() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (tree: any) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     visit(tree, 'element', (node: any) => {
@@ -40,6 +41,7 @@ function rehypeImageMetadata() {
 }
 
 function rehypeFigure() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (tree: any) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     visit(tree, 'element', (node: any) => {
@@ -62,6 +64,7 @@ function rehypeFigure() {
               node.properties.className || []
             ).concat('image-figure');
 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const captionChildren: any[] = [];
             const parts = alt.split(/<br\s*\/?>/i);
 

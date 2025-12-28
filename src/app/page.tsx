@@ -17,7 +17,7 @@ export default function Page() {
   const blogposts = getBlogs();
 
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-dvh space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -30,7 +30,7 @@ export default function Page() {
                 text={`${DATA.name}`}
               />
               <BlurFadeText
-                className="max-w-[600px] md:text-xl"
+                className="max-w-150 md:text-xl"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
@@ -53,7 +53,7 @@ export default function Page() {
           <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
             <Markdown
               components={{
-                img: MarkdownImage as any,
+                img: MarkdownImage,
               }}
             >
               {DATA.summary}
@@ -188,7 +188,7 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-200 mx-auto">
             {blogposts.map((blog, id) => (
               <BlurFade
                 key={blog.title}
