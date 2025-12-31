@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run optimize-images && next build",
     "start": "next start",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.1",
