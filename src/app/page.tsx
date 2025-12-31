@@ -54,6 +54,14 @@ export default function Page() {
             <Markdown
               components={{
                 img: MarkdownImage,
+                a: ({ node, ...props }) => (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    {...props}
+                    className="hover:underline"
+                  />
+                ),
               }}
             >
               {DATA.summary}
@@ -83,21 +91,15 @@ export default function Page() {
             <h2 className="text-xl font-bold">News</h2>
           </BlurFade>
           {DATA.news.map((news, id) => (
-            <BlurFade
-              key={news.content}
-              delay={BLUR_FADE_DELAY * 7 + id * 0.05}
-            >
+            <BlurFade key={news.title} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
               <ResumeCard
-                key={news.content}
-                logoUrl={news.logoUrl}
-                altText={news.content}
-                title={news.content}
-                subtitle={news.title}
+                key={news.title}
+                logoUrl=""
+                altText={news.title}
+                title={news.title}
+                subtitle={news.subtitle}
                 href={news.href}
-                badges={news.badges}
-                period={
-                  news.end ? `${news.start} - ${news.end}` : `${news.start}`
-                }
+                period={news.date}
                 description={news.description}
               />
             </BlurFade>
