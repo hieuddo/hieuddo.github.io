@@ -171,6 +171,21 @@ export default async function Blog({
                   </MarkdownVideo>
                 );
               }
+            } else if (domNode instanceof Element && domNode.tagName === 'a') {
+              const { href, class: className, ...rest } = domNode.attribs;
+              if (href && !href.startsWith('/') && !href.startsWith('#')) {
+                return (
+                  <a
+                    href={href}
+                    className={className}
+                    {...rest}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {domToReact(domNode.children as DOMNode[])}
+                  </a>
+                );
+              }
             }
           },
         })}
