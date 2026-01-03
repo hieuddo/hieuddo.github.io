@@ -42,7 +42,10 @@
         "image": "",
         "links": {
           "DOI": "https://dl.acm.org/doi/10.1145/3604915.3610648",
-          "pdf": "/papers/recsys23lbr.pdf",
+          "pdf": [
+            "https://dl.acm.org/doi/epdf/10.1145/3604915.3610648",
+            "/papers/recsys23lbr.pdf"
+          ],
           "code": ""
         }
       }
