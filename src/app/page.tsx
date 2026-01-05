@@ -100,7 +100,6 @@ export default function Page() {
                 subtitle={news.subtitle}
                 href={news.href}
                 period={news.date}
-                description={news.description}
               />
             </BlurFade>
           ))}
