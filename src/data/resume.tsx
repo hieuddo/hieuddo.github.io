@@ -68,8 +68,8 @@ export const DATA = {
   news: [
     {
       title:
-        '"Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences" accepted at TORS!',
-      href: 'https://arxiv.org/pdf/2506.23170',
+        '"Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences" accepted at TORS! Read updated manuscript here.',
+      href: '/papers/CoVE.pdf',
       subtitle: '',
       date: '1 Jan 2026',
       description: '',
