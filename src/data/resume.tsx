@@ -68,11 +68,10 @@ export const DATA = {
   news: [
     {
       title:
-        '"Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences" accepted at TORS! Read updated manuscript here.',
+        '"Compositions of Variant Experts for Integrating Short-Term and Long-Term Preferences" accepted at TORS!',
       href: '/papers/CoVE.pdf',
-      subtitle: '',
+      subtitle: 'Read updated manuscript here.',
       date: '1 Jan 2026',
-      description: '',
     },
     {
       title:
@@ -80,7 +79,6 @@ export const DATA = {
       href: '',
       subtitle: '',
       date: 'Nov 2025',
-      description: '',
     },
     {
       title:
@@ -88,7 +86,6 @@ export const DATA = {
       href: '/dissertation.pdf',
       subtitle: '',
       date: 'Jul 2025',
-      description: '',
     },
     {
       title:
@@ -96,7 +93,6 @@ export const DATA = {
       href: 'https://arxiv.org/pdf/2506.23170',
       subtitle: '',
       date: 'Jun 2025',
-      description: '',
     },
     {
       title: 'Paper accepted at SIGKDD Explorations. Read here!',
@@ -104,21 +100,18 @@ export const DATA = {
       subtitle:
         'Dual-Target Disjointed Cross-Domain Recommendation Mediated via Latent User Preferences',
       date: 'May 2025',
-      description: '',
     },
     {
       title: "Volunteered at The Web Conference 2024 (WWW'24). Read blog post!",
       href: 'https://preferred.ai/blog/the-web-conference-2024-in-singapore',
       subtitle: '',
       date: 'May 2024',
-      description: '',
     },
     {
       title: "Attended and presented poster at RecSys'2023. Blog post here!",
       href: 'https://preferred.ai/blog/recsys-2023-in-singapore',
       subtitle: '',
       date: 'Sep 2023',
-      description: '',
     },
     {
       title:
@@ -126,28 +119,24 @@ export const DATA = {
       href: '/papers/recsys23lbr.pdf',
       subtitle: 'Continual Collaborative Filtering Through Gradient Alignment',
       date: 'Jul 2023',
-      description: '',
     },
     {
       title: 'Passed Qualifying Exam',
       href: '',
       subtitle: '',
       date: 'Nov 2021',
-      description: '',
     },
     {
       title: 'Started my Ph.D. journey',
       href: '',
       subtitle: 'SMU School of Computing and Information Systems',
       date: 'Aug 2020',
-      description: '',
     },
     {
       title: 'Graduated from VNU-UET',
       href: '',
       subtitle: 'Summa Cum Laude, Excellent Thesis Award',
       date: 'Jul 2020',
-      description: '',
     },
   ],
 
