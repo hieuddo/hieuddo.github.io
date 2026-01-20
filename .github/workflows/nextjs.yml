@@ -43,6 +43,14 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
+      - name: Compile Resume LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume/resume.tex
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+      - name: Copy Resume PDF to public
+        run: cp resume/resume.pdf public/Resume.pdf
       - name: Install dependencies
         run: |
           npm install -g pnpm
