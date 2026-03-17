@@ -9,8 +9,11 @@
         "venue": "ACM Transactions on Recommender Systems (TORS)",
         "image": "",
         "links": {
-          "DOI": "",
-          "pdf": ["https://arxiv.org/pdf/2506.23170"],
+          "DOI": "https://dl.acm.org/doi/10.1145/3795520",
+          "pdf": [
+            "https://dl.acm.org/doi/pdf/10.1145/3795520",
+            "https://arxiv.org/pdf/2506.23170"
+          ],
           "code": "https://github.com/PreferredAI/CoVE"
         }
       },
