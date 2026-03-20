@@ -50,12 +50,12 @@ jobs:
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
       - name: Copy Resume PDF to public
-        run: cp resume/resume.pdf public/Resume.pdf
+        run: cp resume.pdf public/Resume.pdf
       - name: Commit compiled Resume PDF
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add resume/resume.pdf public/Resume.pdf
+          git add public/Resume.pdf
           git diff --cached --quiet || git commit -m "ci: update compiled Resume.pdf [skip ci]"
           git push
       - name: Install dependencies
