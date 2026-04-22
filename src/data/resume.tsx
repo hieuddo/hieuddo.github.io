@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: 'https://maps.app.goo.gl/j4vQ1ED92G9Fohu6A',
   description: 'Research Scientist',
   summary:
-    'Xin chào (Hello)! I am currently a Research Scientist at [Preferred.AI](https://preferred.ai/) where I work on user understanding and personalization for financial services. I completed my Ph.D. at SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world problems.',
+    'Xin chào (Hello)! I am currently a Research Scientist at [Preferred.AI](https://preferred.ai/) where I work on behavioral understanding for portfolio management. I completed my Ph.D. at SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world problems.',
   avatarUrl: '/me.webp',
   skills: [
     'Recommendation Systems',
