@@ -24,32 +24,42 @@ export function TeachingCard({
   links,
 }: Props) {
   return (
-    <li className="relative ml-10 py-4">
-      {image && (
-        <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-          <Avatar className="border size-12 m-auto">
-            <AvatarImage src={image} alt={title} className="object-contain" />
+    <li className="relative ml-10 pb-6 group">
+      {/* Refined Timeline Dot */}
+      <div className="absolute -left-[40px] top-1.5 -translate-x-1/2 z-10">
+        {image ? (
+          <Avatar className="border border-border/40 dark:border-white/10 size-10 bg-white dark:bg-zinc-900 p-0.5 rounded-full shadow-sm">
+            <AvatarImage src={image} alt={title} className="object-contain rounded-full" />
             <AvatarFallback>{title[0]}</AvatarFallback>
           </Avatar>
-        </div>
-      )}
-      <div className="flex flex-1 flex-col justify-start gap-1">
-        {dates && (
-          <time className="text-xs text-muted-foreground">{dates}</time>
+        ) : (
+          <div className="size-3 rounded-full border-2 border-primary bg-background flex items-center justify-center relative shadow-[0_0_8px_rgba(99,102,241,0.35)] dark:shadow-[0_0_8px_rgba(99,102,241,0.55)] transition-transform duration-300 group-hover:scale-125">
+            <span className="absolute size-1.5 rounded-full bg-primary" />
+          </div>
         )}
-        <h2 className="font-semibold leading-none">{title}</h2>
-        {role && <p className="text-sm text-muted-foreground">{role}</p>}
+      </div>
+
+      <div className="flex flex-1 flex-col justify-start gap-1.5 pl-2">
+        {dates && (
+          <time className="text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">{dates}</time>
+        )}
+        <h3 className="font-bold text-foreground text-sm sm:text-base leading-snug group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        {role && (
+          <p className="text-xs sm:text-sm font-medium text-indigo-500/80 dark:text-indigo-400/80">{role}</p>
+        )}
         {description && (
-          <span className="prose dark:prose-invert text-sm text-muted-foreground">
+          <span className="prose dark:prose-invert text-xs sm:text-sm text-muted-foreground leading-relaxed">
             {description}
           </span>
         )}
       </div>
       {links && links.length > 0 && (
-        <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
+        <div className="mt-2 ml-2 flex flex-row flex-wrap items-start gap-2">
           {links?.map((link, idx) => (
             <Link href={link.href} key={idx}>
-              <Badge key={idx} title={link.title} className="flex gap-2">
+              <Badge key={idx} title={link.title} className="flex gap-2 text-[10px] px-2 py-0.5">
                 {link.icon}
                 {link.title}
               </Badge>
@@ -60,3 +70,4 @@ export function TeachingCard({
     </li>
   );
 }
+

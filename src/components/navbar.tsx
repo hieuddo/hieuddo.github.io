@@ -1,78 +1,67 @@
-import { Dock, DockIcon } from '@/components/magicui/dock';
+'use client';
+
 import { ModeToggle } from '@/components/mode-toggle';
-import { buttonVariants } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { DATA } from '@/data/resume';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/publication', label: 'Publications' },
+    { href: '/blog', label: 'Blog' },
+  ];
+
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
-      <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        {DATA.navbar.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: 'ghost', size: 'icon' }),
-                    'size-12'
-                  )}
-                >
-                  <item.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full" />
-        {Object.entries(DATA.contact.social)
-          .filter(([, social]) => social.navbar)
-          .map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      buttonVariants({ variant: 'ghost', size: 'icon' }),
-                      'size-12'
-                    )}
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <ModeToggle />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      </Dock>
-    </div>
+    <header className="fixed top-4 inset-x-0 z-50 mx-auto w-full max-w-md px-4 select-none">
+      <nav className="flex items-center justify-between w-full px-4 sm:px-5 py-1.5 rounded-full bg-background/55 dark:bg-card/45 backdrop-blur-md border border-border/40 dark:border-white/5 shadow-lg shadow-black/[0.03] dark:shadow-none transition-all duration-300">
+        
+        {/* Left Section: Favicon Logo */}
+        <Link 
+          href="/" 
+          className="hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
+        >
+          <img 
+            src="/monkas.svg" 
+            alt="Logo" 
+            className="size-7 sm:size-8 rounded-full border border-border/40 dark:border-white/10 bg-zinc-100 dark:bg-zinc-800 p-1 shadow-sm transition-colors duration-300"
+          />
+        </Link>
+
+        {/* Navigation Links */}
+        <div className="flex items-center gap-x-0.5 sm:gap-x-1">
+          {links.map((link) => {
+            const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 relative',
+                  isActive 
+                    ? 'text-foreground' 
+                    : 'text-muted-foreground hover:text-foreground'
+                )}
+              >
+                {isActive && (
+                  <span className="absolute inset-0 bg-secondary dark:bg-white/5 rounded-full -z-10" />
+                )}
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Right Section: Theme Toggle */}
+        <div className="flex items-center border-l border-border/40 pl-2 dark:border-white/10">
+          <ModeToggle />
+        </div>
+      </nav>
+    </header>
   );
 }
+
+
+

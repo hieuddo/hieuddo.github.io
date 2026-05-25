@@ -1,133 +1,33 @@
 import BlurFade from '@/components/magicui/blur-fade';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import PublicationsExplorer from '@/components/publications-explorer';
 import publicationData from '@/data/publications.json';
-import { AiOutlineFilePdf } from 'react-icons/ai';
-import { FaGithub } from 'react-icons/fa';
-import { SiAcm } from 'react-icons/si';
-
-interface Links {
-  DOI: string;
-  pdf: string | string[];
-  code: string;
-}
-
-interface Props {
-  title: string;
-  authors: string;
-  dates: string;
-  venue: string;
-  image?: string;
-  links?: Links;
-}
-
-const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
-  const pdfLinks = Array.isArray(links.pdf)
-    ? links.pdf
-    : links.pdf
-      ? [links.pdf]
-      : [];
-
-  return (
-    <div style={{ display: 'flex', gap: '30px', marginLeft: '10px' }}>
-      {links.DOI && (
-        <a
-          href={links.DOI}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-        >
-          <SiAcm /> DOI
-        </a>
-      )}
-      {pdfLinks.map((pdfUrl, index) => (
-        <a
-          key={`pdf-${index}`}
-          href={pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-        >
-          <AiOutlineFilePdf /> PDF
-        </a>
-      ))}
-      {links.code && (
-        <a
-          href={links.code}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-        >
-          <FaGithub /> Code
-        </a>
-      )}
-    </div>
-  );
-};
-
-function PubCard({ title, authors, dates, venue, image, links }: Props) {
-  return (
-    <li className="relative ml-10 py-4">
-      {image && (
-        <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-          <Avatar className="border size-12 m-auto">
-            <AvatarImage src={image} alt={title} className="object-contain" />
-            <AvatarFallback>{title[0]}</AvatarFallback>
-          </Avatar>
-        </div>
-      )}
-      <div className="flex flex-1 flex-col justify-start gap-1">
-        {dates && (
-          <time className="text-xs text-muted-foreground">{dates}</time>
-        )}
-        <h2 className="font-semibold leading-none">{title}</h2>
-        {venue && <p className="text-sm text-muted-foreground">{venue}</p>}
-        {authors && (
-          <span className="prose dark:prose-invert text-sm text-muted-foreground">
-            {authors}
-          </span>
-        )}
-        {links && <LinkIcons links={links} />}
-      </div>
-    </li>
-  );
-}
 
 export const metadata = {
-  title: 'Publication',
-  description: 'Publication page',
+  title: 'Publications',
+  description: 'Academic and scientific publications on Recommender Systems, Cross-Domain Recommendation, Continual Learning, and Multi-Task Learning by Jaime Hieu Do.',
 };
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default async function BlogPage() {
+export default async function PublicationsPage() {
   return (
-    <section>
+    <section className="space-y-6">
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-          Publication
-        </h1>
-        {publicationData.map((yearData, yearIndex) => (
-          <div key={yearIndex}>
-            <h2 className="font-semibold text-xl mb-4">{yearData.year}</h2>
-            <ul>
-              {yearData.publications.map((pub, pubIndex) => (
-                <BlurFade
-                  key={pub.title + pub.time}
-                  delay={BLUR_FADE_DELAY * 11 + pubIndex * 0.05}
-                >
-                  <PubCard
-                    title={pub.title}
-                    authors={pub.authors}
-                    venue={pub.venue}
-                    dates={pub.time}
-                    image={pub.image}
-                    links={pub.links}
-                  />
-                </BlurFade>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="space-y-2">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
+            Publications
+            <span className="absolute bottom-0 left-0 w-16 h-[2px] bg-primary" />
+          </h1>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-2 select-none">
+            Research publications detailing the formulation and solution of dynamic real-world recommendation problems.
+          </p>
+        </div>
+      </BlurFade>
+
+      <BlurFade delay={BLUR_FADE_DELAY * 2}>
+        <div className="mt-8">
+          <PublicationsExplorer data={publicationData} />
+        </div>
       </BlurFade>
     </section>
   );
