@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -16,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-4 inset-x-0 z-50 mx-auto w-full max-w-md px-4 select-none">
-      <nav className="flex items-center justify-between w-full px-4 sm:px-5 py-1.5 rounded-full bg-background/55 dark:bg-card/45 backdrop-blur-md border border-border/40 dark:border-white/5 shadow-lg shadow-black/[0.03] dark:shadow-none transition-all duration-300">
+      <nav className="flex items-center justify-between w-full px-4 sm:px-5 py-1.5 rounded-full bg-background/65 dark:bg-card/45 backdrop-blur-md border border-border/40 dark:border-white/5 shadow-lg shadow-black/[0.03] dark:shadow-none transition-all duration-300">
         
         {/* Left Section: Favicon Logo */}
         <Link 

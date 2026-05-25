@@ -11,6 +11,7 @@ import MarkdownImage from '@/components/markdown-image';
 import getBlogs from './getBlogs';
 
 const BLUR_FADE_DELAY = 0.04;
+const SQUIRCLE_POWER: 3 | 4 | 5 = 5;
 
 export default function Page() {
   const blogposts = getBlogs();
@@ -27,7 +28,7 @@ export default function Page() {
                 yOffset={8}
                 text={`${DATA.name}`}
               />
-              
+
               {/* Dynamic contact and social action bar */}
               <BlurFade delay={BLUR_FADE_DELAY * 1.5}>
                 <div className="flex flex-wrap items-center gap-2 mt-2 select-none">
@@ -50,8 +51,15 @@ export default function Page() {
               </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <div className="size-32 sm:size-36 md:size-48 [clip-path:url(#squircle)] border border-border/50 dark:border-white/10 p-1 bg-white dark:bg-zinc-950 shadow-lg shrink-0 flex items-center justify-center">
-                <div className="size-full [clip-path:url(#squircle)] bg-zinc-100 dark:bg-zinc-900">
+              <div
+                key={SQUIRCLE_POWER}
+                className="size-32 sm:size-36 md:size-48 border border-border/50 dark:border-white/10 p-1 bg-white dark:bg-zinc-950 shadow-lg shrink-0 flex items-center justify-center"
+                style={{ clipPath: `url(#squircle-${SQUIRCLE_POWER})` }}
+              >
+                <div
+                  className="size-full bg-zinc-100 dark:bg-zinc-900"
+                  style={{ clipPath: `url(#squircle-${SQUIRCLE_POWER})` }}
+                >
                   <img
                     alt={DATA.name}
                     src={DATA.avatarUrl}
@@ -105,7 +113,12 @@ export default function Page() {
           <div className="flex flex-wrap gap-1.5">
             {DATA.skills.map((skill, id) => (
               <BlurFade key={skill} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
-                <Badge key={skill} className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 hover:bg-secondary border-none text-secondary-foreground rounded-full select-none">{skill}</Badge>
+                <Badge
+                  key={skill}
+                  className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 hover:bg-secondary border-none text-secondary-foreground rounded-full select-none"
+                >
+                  {skill}
+                </Badge>
               </BlurFade>
             ))}
           </div>
@@ -122,7 +135,10 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-col gap-3">
             {DATA.news.map((news, id) => (
-              <BlurFade key={news.title} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
+              <BlurFade
+                key={news.title}
+                delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+              >
                 <ResumeCard
                   key={news.title}
                   logoUrl=""
@@ -256,4 +272,3 @@ export default function Page() {
     </main>
   );
 }
-

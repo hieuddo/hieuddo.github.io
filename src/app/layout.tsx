@@ -61,29 +61,38 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto pt-28 pb-20 px-6 sm:px-8 relative page-fade-in',
+          'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto pt-28 pb-20 px-6 sm:px-8 relative',
           fontSans.variable
         )}
       >
         <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider delayDuration={0}>
-            {/* Global mathematical Squircle clipPath definition */}
+            {/* Global mathematical Squircle clipPath definitions (n=3, n=4, n=5) */}
             <svg width="0" height="0" className="absolute pointer-events-none -z-50">
               <defs>
-                <clipPath id="squircle" clipPathUnits="objectBoundingBox">
+                {/* n=3: Softer squircle */}
+                <clipPath id="squircle-3" clipPathUnits="objectBoundingBox">
+                  <path d="M 0.5,0 C 0.15,0 0,0.15 0,0.5 C 0,0.85 0.15,1 0.5,1 C 0.85,1 1,0.85 1,0.5 C 1,0.15 0.85,0 0.5,0 Z" />
+                </clipPath>
+                {/* n=4: Xiaomi style */}
+                <clipPath id="squircle-4" clipPathUnits="objectBoundingBox">
                   <path d="M 0.5,0 C 0.1,0 0,0.1 0,0.5 C 0,0.9 0.1,1 0.5,1 C 0.9,1 1,0.9 1,0.5 C 1,0.1 0.9,0 0.5,0 Z" />
+                </clipPath>
+                {/* n=5: iOS style */}
+                <clipPath id="squircle-5" clipPathUnits="objectBoundingBox">
+                  <path d="M 0.5,0 C 0.05,0 0,0.05 0,0.5 C 0,0.95 0.05,1 0.5,1 C 0.95,1 1,0.95 1,0.5 C 1,0.05 0.95,0 0.5,0 Z" />
                 </clipPath>
               </defs>
             </svg>
 
             {/* Immersive technical grid pattern */}
             <div className="fixed inset-0 tech-grid pointer-events-none -z-10" />
-            
-            {/* Top Navbar */}
+
+            {/* Top Navbar & Floating Utilities */}
             <Navbar />
-            
-            <main className="w-full">
+
+            <main className="w-full page-fade-in">
               {children}
             </main>
           </TooltipProvider>
@@ -92,4 +101,3 @@ export default function RootLayout({
     </html>
   );
 }
-
