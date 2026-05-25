@@ -14,14 +14,11 @@ export const DATA = {
   skills: [
     'Recommendation Systems',
     'Cross-Domain Recommendations',
-    'Sequential Recommendations',
-    // "Session-Based",
-    // "Session-Aware",
-    // "Next-Item",
-    // "Next-Basket",
     'Multi-Task Learning',
     'Continual Learning',
     'Mixture of Experts',
+    'User Behavior Understanding',
+    'Behavioral Analysis for Portfolio Management',
   ],
 
   navbar: [
@@ -180,5 +177,8 @@ export const DATA = {
     },
   ],
 
-  service: [{ type: 'Journal Reviewer', venues: 'TORS 2024' }],
+  service: [
+    { type: 'Journal Reviewer', venues: 'TORS 2024' },
+    { type: 'Conference Reviewer', venues: 'KDD 2026' },
+  ],
 } as const;
