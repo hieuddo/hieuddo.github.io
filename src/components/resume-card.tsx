@@ -3,8 +3,22 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader } from '@/components/ui/card';
-import { ChevronRightIcon } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+
+// Helper to parse and render LaTeX \textbf{...} tags dynamically into React strong elements
+const renderTextWithBold = (text: string) => {
+  const parts = text.split(/\\textbf\{([^}]+)\}/g);
+  return parts.map((part, i) => 
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-foreground">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+};
 
 interface ResumeCardProps {
   logoUrl: string;
@@ -14,6 +28,7 @@ interface ResumeCardProps {
   href?: string;
   badges?: readonly string[];
   period: string;
+  description?: readonly string[];
 }
 export const ResumeCard = ({
   logoUrl,
@@ -23,6 +38,7 @@ export const ResumeCard = ({
   href,
   badges,
   period,
+  description,
 }: ResumeCardProps) => {
   // Treat as link if href is provided and not empty
   const isLink = href && href !== '#';
@@ -33,16 +49,18 @@ export const ResumeCard = ({
       <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-300" />
       
       <div className="flex-none">
-        {logoUrl ? (
-          <Avatar className="border border-border/40 dark:border-white/10 size-12 bg-white p-1 rounded-xl shadow-sm">
+        <Avatar className="border border-border/40 dark:border-white/10 size-12 bg-white p-1 rounded-xl shadow-sm">
+          {logoUrl ? (
             <AvatarImage
               src={logoUrl}
               alt={altText}
               className="object-contain rounded-lg"
             />
-            <AvatarFallback className="font-bold text-xs">{altText[0]}</AvatarFallback>
-          </Avatar>
-        ) : null}
+          ) : null}
+          <AvatarFallback className="font-bold text-xs bg-zinc-100 text-zinc-700 rounded-lg">
+            {altText ? altText[0] : '?'}
+          </AvatarFallback>
+        </Avatar>
       </div>
       <div className="flex-grow ml-4">
         <div className="flex flex-col gap-y-1">
@@ -63,7 +81,7 @@ export const ResumeCard = ({
                 </span>
               )}
               {isLink && (
-                <ChevronRightIcon className="size-3.5 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 text-primary" />
+                <ArrowUpRight className="size-3.5 opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary transition-all duration-300 ease-out shrink-0" />
               )}
             </h3>
             <div className="text-[11px] sm:text-xs tabular-nums text-muted-foreground text-right whitespace-nowrap shrink-0 pt-0.5">
@@ -74,6 +92,15 @@ export const ResumeCard = ({
             <div className="font-sans text-xs text-muted-foreground font-medium leading-normal">
               {subtitle}
             </div>
+          )}
+          {description && description.length > 0 && (
+            <ul className="list-disc list-outside ml-4 mt-2 text-xs text-muted-foreground space-y-1">
+              {description.map((bullet, idx) => (
+                <li key={idx} className="leading-relaxed text-pretty">
+                  {renderTextWithBold(bullet)}
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </div>

@@ -9,6 +9,13 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const links = [
     { href: '/', label: 'Home' },
     { href: '/publication', label: 'Publications' },
@@ -22,6 +29,7 @@ export default function Navbar() {
         {/* Left Section: Favicon Logo */}
         <Link 
           href="/" 
+          onClick={handleHomeClick}
           className="hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
         >
           <img 
@@ -39,6 +47,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={link.href === '/' ? handleHomeClick : undefined}
                 className={cn(
                   'px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 relative',
                   isActive 

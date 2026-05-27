@@ -69,6 +69,7 @@ export const DATA = {
       href: 'https://dl.acm.org/doi/pdf/10.1145/3795520',
       subtitle: 'Read camera-ready version here!',
       date: '1 Jan 2026',
+      type: 'publication',
     },
     {
       title:
@@ -76,6 +77,7 @@ export const DATA = {
       href: '',
       subtitle: '',
       date: 'Nov 2025',
+      type: 'career',
     },
     {
       title:
@@ -83,6 +85,7 @@ export const DATA = {
       href: '/dissertation.pdf',
       subtitle: '',
       date: 'Jul 2025',
+      type: 'milestone',
     },
     {
       title:
@@ -90,6 +93,7 @@ export const DATA = {
       href: 'https://arxiv.org/pdf/2506.23170',
       subtitle: '',
       date: 'Jun 2025',
+      type: 'publication',
     },
     {
       title: 'Paper accepted at SIGKDD Explorations. Read here!',
@@ -97,18 +101,21 @@ export const DATA = {
       subtitle:
         'Dual-Target Disjointed Cross-Domain Recommendation Mediated via Latent User Preferences',
       date: 'May 2025',
+      type: 'publication',
     },
     {
       title: "Volunteered at The Web Conference 2024 (WWW'24). Read blog post!",
       href: 'https://preferred.ai/blog/the-web-conference-2024-in-singapore',
       subtitle: '',
       date: 'May 2024',
+      type: 'event',
     },
     {
       title: "Attended and presented poster at RecSys'2023. Blog post here!",
       href: 'https://preferred.ai/blog/recsys-2023-in-singapore',
       subtitle: '',
       date: 'Sep 2023',
+      type: 'event',
     },
     {
       title:
@@ -116,24 +123,61 @@ export const DATA = {
       href: '/papers/recsys23lbr.pdf',
       subtitle: 'Continual Collaborative Filtering Through Gradient Alignment',
       date: 'Jul 2023',
+      type: 'publication',
     },
     {
       title: 'Passed Qualifying Exam',
       href: '',
       subtitle: '',
       date: 'Nov 2021',
+      type: 'milestone',
     },
     {
       title: 'Started my Ph.D. journey',
       href: '',
       subtitle: 'SMU School of Computing and Information Systems',
       date: 'Aug 2020',
+      type: 'milestone',
     },
     {
       title: 'Graduated from VNU-UET',
       href: '',
       subtitle: 'Summa Cum Laude, Excellent Thesis Award',
       date: 'Jul 2020',
+      type: 'milestone',
+    },
+  ],
+
+  work: [
+    {
+      company: 'Singapore Management University - Preferred.AI',
+      href: 'https://preferred.ai/',
+      badges: [],
+      location: 'Singapore',
+      title: 'Research Scientist',
+      logoUrl: '/work/smu.svg',
+      start: 'Nov 2025',
+      end: 'Present',
+      description: [
+        'Designing systems and solutions for user understanding and personalization in financial services.',
+        'Building agentic AI solutions with dozens of primitive tools for investor profiling using LangGraph and Ollama.',
+        'Developing RAG pipelines for correctness-first data retrieval with LangChain and LCEL.',
+      ],
+    },
+    {
+      company: 'OSP JSC',
+      href: '',
+      badges: [],
+      location: 'Hanoi, Vietnam',
+      title: 'AI Engineer Intern',
+      logoUrl: '',
+      start: 'May 2019',
+      end: 'Apr 2020',
+      description: [
+        'Engineered predictive pipelines (linear regression, ARIMA, XGBoost) for customer lifetime value.',
+        'Built a real-time face recognition system with InsightFace embeddings and a cosine k-NN classifier.',
+        'Built a Vietnamese news recommender system powered by a language model trained from scratch.',
+      ],
     },
   ],
 

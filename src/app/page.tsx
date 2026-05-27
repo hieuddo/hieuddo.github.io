@@ -9,12 +9,20 @@ import { DATA } from '@/data/resume';
 import Markdown from 'react-markdown';
 import MarkdownImage from '@/components/markdown-image';
 import getBlogs from './getBlogs';
+import { NewsList } from '@/components/news-list';
+import { parseWorkExperienceFromTex } from '@/lib/parse-resume';
+import { PublicationCard } from '@/components/publication-card';
+import publicationsData from '@/data/publications.json';
+import { ChevronRightIcon } from 'lucide-react';
 
 const BLUR_FADE_DELAY = 0.04;
 const SQUIRCLE_POWER: 3 | 4 | 5 = 5;
 
 export default function Page() {
   const blogposts = getBlogs();
+  const parsedWork = parseWorkExperienceFromTex();
+  const workExperience = parsedWork.length > 0 ? parsedWork : DATA.work;
+  const publications = publicationsData.flatMap((group) => group.publications);
 
   return (
     <main className="flex flex-col min-h-dvh space-y-12">
@@ -74,13 +82,13 @@ export default function Page() {
 
       <section id="about">
         <div className="space-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               About
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
             </h2>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <BlurFade delay={BLUR_FADE_DELAY * 4} inView>
             <div className="prose max-w-full text-pretty font-sans text-xs sm:text-sm text-muted-foreground dark:prose-invert leading-relaxed">
               <Markdown
                 components={{
@@ -104,7 +112,7 @@ export default function Page() {
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+          <BlurFade delay={BLUR_FADE_DELAY * 5} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               Research Interests
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
@@ -112,7 +120,7 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1.5">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
+              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 5 + id * 0.05} inView>
                 <Badge
                   key={skill}
                   className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 hover:bg-secondary border-none text-secondary-foreground rounded-full select-none"
@@ -127,26 +135,39 @@ export default function Page() {
 
       <section id="news">
         <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               News
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
             </h2>
           </BlurFade>
+          <NewsList newsItems={DATA.news} blurFadeDelay={BLUR_FADE_DELAY} />
+        </div>
+      </section>
+      <section id="work">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
+              Work Experience
+              <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
+            </h2>
+          </BlurFade>
           <div className="flex flex-col gap-3">
-            {DATA.news.map((news, id) => (
+            {workExperience.map((work, id) => (
               <BlurFade
-                key={news.title}
-                delay={BLUR_FADE_DELAY * 7 + id * 0.05}
+                key={work.company}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
               >
                 <ResumeCard
-                  key={news.title}
-                  logoUrl=""
-                  altText={news.title}
-                  title={news.title}
-                  subtitle={news.subtitle}
-                  href={news.href}
-                  period={news.date}
+                  key={work.company}
+                  logoUrl={work.logoUrl}
+                  altText={work.company}
+                  title={work.company}
+                  subtitle={work.title}
+                  href={work.href}
+                  period={`${work.start} - ${work.end}`}
+                  description={work.description}
                 />
               </BlurFade>
             ))}
@@ -154,9 +175,50 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="publications">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
+              Selected Publications
+              <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
+            </h2>
+          </BlurFade>
+          <div className="flex flex-col gap-4">
+            {publications.map((pub, id) => (
+              <BlurFade
+                key={pub.title}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
+              >
+                <PublicationCard
+                  title={pub.title}
+                  authors={pub.authors}
+                  venue={pub.venue}
+                  period={pub.time}
+                  links={pub.links}
+                />
+              </BlurFade>
+            ))}
+          </div>
+          
+          <BlurFade delay={BLUR_FADE_DELAY * 2 + publications.length * 0.05} inView>
+            <div className="flex justify-center mt-3">
+              <a href="/publication">
+                <button
+                  className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 backdrop-blur-sm shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] flex items-center cursor-pointer"
+                >
+                  Explore All Publications
+                  <ChevronRightIcon className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5 shrink-0" />
+                </button>
+              </a>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 8}>
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               Education
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
@@ -166,7 +228,8 @@ export default function Page() {
             {DATA.education.map((education, id) => (
               <BlurFade
                 key={education.school}
-                delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
               >
                 <ResumeCard
                   key={education.school}
@@ -187,37 +250,36 @@ export default function Page() {
 
       <section id="teaching">
         <div className="space-y-6">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               Teaching
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
             </h2>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <ul className="ml-4 border-l border-muted/80 dark:border-white/10 relative space-y-1 mt-6">
-              {DATA.teaching.map((project, id) => (
-                <BlurFade
-                  key={project.title + project.dates}
-                  delay={BLUR_FADE_DELAY * 10 + id * 0.05}
-                >
-                  <TeachingCard
-                    title={project.title}
-                    description={project.description}
-                    role={project.role}
-                    dates={project.dates}
-                    image={project.image}
-                    links={project.links}
-                  />
-                </BlurFade>
-              ))}
-            </ul>
-          </BlurFade>
+          <ul className="ml-4 border-l border-muted/80 dark:border-white/10 relative space-y-1 mt-6">
+            {DATA.teaching.map((project, id) => (
+              <BlurFade
+                key={project.title + project.dates}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
+              >
+                <TeachingCard
+                  title={project.title}
+                  description={project.description}
+                  role={project.role}
+                  dates={project.dates}
+                  image={project.image}
+                  links={project.links}
+                />
+              </BlurFade>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section id="service">
         <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative">
               Academic Service
               <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-primary" />
@@ -227,7 +289,8 @@ export default function Page() {
             {DATA.service.map((service, id) => (
               <BlurFade
                 key={service.type}
-                delay={BLUR_FADE_DELAY * 11 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
               >
                 <ServiceCard type={service.type} description={service.venues} />
               </BlurFade>
@@ -238,7 +301,7 @@ export default function Page() {
 
       <section id="blogs">
         <div className="space-y-6">
-          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+          <BlurFade delay={BLUR_FADE_DELAY} inView>
             <div className="flex flex-col items-center justify-center space-y-2 text-center">
               <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground pb-2 border-b border-border/40 w-full relative text-left">
                 Personal Blogs
@@ -253,7 +316,8 @@ export default function Page() {
             {blogposts.map((blog, id) => (
               <BlurFade
                 key={blog.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
+                inView
               >
                 <ProjectCard
                   href={blog.href}
