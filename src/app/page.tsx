@@ -282,20 +282,18 @@ export default function Page() {
           </BlurFade>
           <ul className="ml-4 border-l border-muted/80 dark:border-white/10 relative space-y-1 mt-6">
             {DATA.teaching.map((project, id) => (
-              <BlurFade
-                key={project.title + project.dates}
-                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
-                inView
-              >
-                <TeachingCard
-                  title={project.title}
-                  description={project.description}
-                  role={project.role}
-                  dates={project.dates}
-                  image={project.image}
-                  links={project.links}
-                />
-              </BlurFade>
+              <li key={project.title + project.dates}>
+                <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} inView>
+                  <TeachingCard
+                    title={project.title}
+                    description={project.description}
+                    role={project.role}
+                    dates={project.dates}
+                    image={project.image}
+                    links={project.links}
+                  />
+                </BlurFade>
+              </li>
             ))}
           </ul>
         </div>

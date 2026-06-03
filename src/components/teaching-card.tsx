@@ -24,7 +24,7 @@ export function TeachingCard({
   links,
 }: Props) {
   return (
-    <li className="relative ml-10 pb-6 group">
+    <div className="relative ml-10 pb-6 group">
       {/* Refined Timeline Dot */}
       <div className="absolute -left-[40px] top-1.5 -translate-x-1/2 z-10">
         {image ? (
@@ -67,7 +67,7 @@ export function TeachingCard({
           ))}
         </div>
       )}
-    </li>
+    </div>
   );
 }
 

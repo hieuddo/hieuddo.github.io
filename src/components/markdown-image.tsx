@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils'; // Assuming you have a utility for merging classes
 
-interface MarkdownImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface MarkdownImageProps
+  extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src'> {
+  // react-markdown types `img` src as `string | Blob`; markdown only ever yields a string URL.
+  src?: string | Blob;
   width?: number | string;
   height?: number | string;
 }
@@ -14,7 +17,7 @@ export default function MarkdownImage({
   className,
   ...props
 }: MarkdownImageProps) {
-  if (!src) return null;
+  if (typeof src !== 'string') return null;
 
   // Type guard or conversion for width/height since they come as string/number from rehype
   const w = width ? Number(width) : 800; // Default or fallback width

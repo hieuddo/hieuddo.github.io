@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { BookOpen, FileText, Github, Search } from 'lucide-react';
+import { BookOpen, FileText, Code, Search } from 'lucide-react';
 import {
   highlightAuthor,
   type Publication,
@@ -52,7 +52,7 @@ const LinkIcons: React.FC<{ links: PublicationLinks }> = ({ links }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md border border-border/50 dark:border-white/5 bg-secondary/40 dark:bg-zinc-900/60 text-[10px] font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-colors"
         >
-          <Github className="size-3 text-foreground/80" /> Code
+          <Code className="size-3 text-foreground/80" /> Code
         </a>
       )}
     </div>
