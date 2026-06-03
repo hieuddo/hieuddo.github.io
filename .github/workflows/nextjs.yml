@@ -62,6 +62,8 @@ jobs:
           git push
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
       - name: Build with Next.js
         run: pnpm build
       - name: Upload artifact
