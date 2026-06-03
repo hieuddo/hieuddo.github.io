@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: 'en_US',
     type: 'website',
+    images: [{ url: DATA.avatarUrl, alt: DATA.name }],
   },
   robots: {
     index: true,
@@ -45,10 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: 'summary_large_image',
-  },
-  verification: {
-    google: '',
-    yandex: '',
+    images: [DATA.avatarUrl],
   },
 };
 
@@ -95,6 +93,10 @@ export default function RootLayout({
             <main className="w-full page-fade-in">
               {children}
             </main>
+
+            <footer className="w-full mt-16 pt-6 border-t border-border/40 text-center text-xs text-muted-foreground">
+              © {new Date().getFullYear()} {DATA.name}
+            </footer>
           </TooltipProvider>
         </ThemeProvider>
       </body>

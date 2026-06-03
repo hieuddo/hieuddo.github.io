@@ -15,20 +15,32 @@ export const ServiceCard = ({ type, description }: ServiceCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const isExpandable = !!description;
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (isExpandable) {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
-    }
-  };
+  const toggle = () => setIsExpanded((prev) => !prev);
+
+  const interactiveProps = isExpandable
+    ? {
+        role: 'button' as const,
+        tabIndex: 0,
+        'aria-expanded': isExpanded,
+        onClick: toggle,
+        onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        },
+      }
+    : {};
 
   return (
     <div
       className={cn(
-        'block w-full',
-        isExpandable ? 'cursor-pointer' : 'cursor-default'
+        'block w-full rounded-2xl',
+        isExpandable
+          ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50'
+          : 'cursor-default'
       )}
-      onClick={isExpandable ? handleClick : undefined}
+      {...interactiveProps}
     >
       <Card className="flex border border-border/40 dark:border-white/5 bg-card/25 dark:bg-card/10 backdrop-blur-sm p-4 rounded-2xl hover:border-primary/35 dark:hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.01] hover:-translate-y-[1px] transition-all duration-300 ease-out group relative overflow-hidden w-full">
         {/* Dynamic left highlight decoration */}

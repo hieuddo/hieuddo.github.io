@@ -1,35 +1,19 @@
 'use client';
 
 import { Card } from '@/components/ui/card';
+import {
+  highlightAuthor,
+  type PublicationLinks,
+} from '@/lib/publications';
 import { BookOpen, FileText, Code } from 'lucide-react';
-
-interface LinkItems {
-  DOI: string;
-  pdf: string | string[];
-  code?: string;
-}
 
 interface PublicationCardProps {
   title: string;
   authors: string;
   venue: string;
   period: string;
-  links?: LinkItems;
+  links?: PublicationLinks;
 }
-
-const highlightAuthor = (authorsStr: string) => {
-  const regex = /(Jaime Hieu Do|Hieu Do)/g;
-  const parts = authorsStr.split(regex);
-  return parts.map((part, index) => 
-    part === 'Jaime Hieu Do' || part === 'Hieu Do' ? (
-      <strong key={index} className="text-foreground font-bold underline decoration-primary/40 underline-offset-2">
-        {part}
-      </strong>
-    ) : (
-      part
-    )
-  );
-};
 
 export const PublicationCard = ({
   title,

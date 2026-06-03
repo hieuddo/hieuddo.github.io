@@ -24,13 +24,30 @@ export default function Page() {
   const workExperience = parsedWork.length > 0 ? parsedWork : DATA.work;
   const publications = publicationsData.flatMap((group) => group.publications);
 
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: DATA.name,
+    url: DATA.url,
+    jobTitle: DATA.description,
+    image: `${DATA.url}${DATA.avatarUrl}`,
+    sameAs: Object.values(DATA.contact.social)
+      .map((social) => social.url)
+      .filter((url) => url.startsWith('http')),
+  };
+
   return (
     <main className="flex flex-col min-h-dvh space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-4">
           <div className="gap-4 flex flex-col-reverse sm:flex-row justify-between items-start">
             <div className="flex-col flex flex-1 space-y-3">
               <BlurFadeText
+                as="h1"
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl/none text-foreground"
                 yOffset={8}
@@ -71,6 +88,8 @@ export default function Page() {
                   <img
                     alt={DATA.name}
                     src={DATA.avatarUrl}
+                    width={192}
+                    height={192}
                     className="size-full object-cover"
                   />
                 </div>
@@ -120,7 +139,11 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1.5">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 5 + id * 0.05} inView>
+              <BlurFade
+                key={skill}
+                delay={BLUR_FADE_DELAY * 5 + id * 0.05}
+                inView
+              >
                 <Badge
                   key={skill}
                   className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 hover:bg-secondary border-none text-secondary-foreground rounded-full select-none"
@@ -200,13 +223,14 @@ export default function Page() {
               </BlurFade>
             ))}
           </div>
-          
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + publications.length * 0.05} inView>
+
+          <BlurFade
+            delay={BLUR_FADE_DELAY * 2 + publications.length * 0.05}
+            inView
+          >
             <div className="flex justify-center mt-3">
               <a href="/publication">
-                <button
-                  className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 backdrop-blur-sm shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] flex items-center cursor-pointer"
-                >
+                <button className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 backdrop-blur-sm shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] flex items-center cursor-pointer">
                   Explore All Publications
                   <ChevronRightIcon className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5 shrink-0" />
                 </button>

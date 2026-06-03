@@ -58,6 +58,7 @@ export function ProjectCard({
             loop
             muted
             playsInline
+            aria-hidden="true"
             className="pointer-events-none mx-auto h-40 w-full object-cover object-top hover:scale-[1.03] transition-transform duration-500" // needed because random black line at bottom of video
           />
         )}

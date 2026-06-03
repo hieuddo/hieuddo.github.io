@@ -2,48 +2,20 @@
 
 import React, { useState, useMemo } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { AiOutlineFilePdf } from 'react-icons/ai';
-import { FaGithub } from 'react-icons/fa';
-import { SiAcm } from 'react-icons/si';
-import { FiSearch } from 'react-icons/fi';
+import { BookOpen, FileText, Github, Search } from 'lucide-react';
+import {
+  highlightAuthor,
+  type Publication,
+  type PublicationLinks,
+  type YearGroup,
+} from '@/lib/publications';
 import { cn } from '@/lib/utils';
-
-interface Links {
-  DOI: string;
-  pdf: string | string[];
-  code: string;
-}
-
-interface Publication {
-  title: string;
-  authors: string;
-  time: string;
-  venue: string;
-  image?: string;
-  links?: Links;
-}
-
-interface YearGroup {
-  year: string;
-  publications: Publication[];
-}
 
 interface ExplorerProps {
   data: YearGroup[];
 }
 
-const highlightAuthor = (authorsStr: string) => {
-  const regex = /(Jaime Hieu Do|Hieu Do)/g;
-  const parts = authorsStr.split(regex);
-  return parts.map((part, index) => 
-    part === 'Jaime Hieu Do' || part === 'Hieu Do'
-      ? <strong key={index} className="text-foreground font-bold underline decoration-primary/40 underline-offset-2">{part}</strong>
-      : part
-  );
-};
-
-const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
+const LinkIcons: React.FC<{ links: PublicationLinks }> = ({ links }) => {
   const pdfLinks = Array.isArray(links.pdf)
     ? links.pdf
     : links.pdf
@@ -59,7 +31,7 @@ const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md border border-border/50 dark:border-white/5 bg-secondary/40 dark:bg-zinc-900/60 text-[10px] font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-colors"
         >
-          <SiAcm className="size-3" /> DOI
+          <BookOpen className="size-3 text-emerald-500/80" /> DOI
         </a>
       )}
       {pdfLinks.map((pdfUrl, index) => (
@@ -70,7 +42,7 @@ const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md border border-border/50 dark:border-white/5 bg-secondary/40 dark:bg-zinc-900/60 text-[10px] font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-colors"
         >
-          <AiOutlineFilePdf className="size-3 text-red-500/80" /> PDF {pdfLinks.length > 1 ? `#${index + 1}` : ''}
+          <FileText className="size-3 text-red-500/80" /> PDF {pdfLinks.length > 1 ? `#${index + 1}` : ''}
         </a>
       ))}
       {links.code && (
@@ -80,7 +52,7 @@ const LinkIcons: React.FC<{ links: Links }> = ({ links }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md border border-border/50 dark:border-white/5 bg-secondary/40 dark:bg-zinc-900/60 text-[10px] font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-colors"
         >
-          <FaGithub className="size-3 text-foreground/80" /> Code
+          <Github className="size-3 text-foreground/80" /> Code
         </a>
       )}
     </div>
@@ -93,7 +65,7 @@ function PubCard({ title, authors, dates, venue, image, links }: {
   dates: string;
   venue: string;
   image?: string;
-  links?: Links;
+  links?: PublicationLinks;
 }) {
   return (
     <li className="relative ml-8 pb-8 group">
@@ -191,7 +163,7 @@ export default function PublicationsExplorer({ data }: ExplorerProps) {
     <div className="space-y-8">
       {/* Search Input Widget */}
       <div className="relative w-full group select-none">
-        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4 group-focus-within:text-primary transition-colors" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4 group-focus-within:text-primary transition-colors" />
         <input
           type="text"
           placeholder="Search papers by title, venue, or co-authors..."
@@ -236,7 +208,7 @@ export default function PublicationsExplorer({ data }: ExplorerProps) {
                 {yearGroup.year}
               </h2>
               <ul className="ml-4 border-l border-muted/80 dark:border-white/10 relative space-y-1">
-                {yearGroup.publications.map((pub, pubIndex) => (
+                {yearGroup.publications.map((pub) => (
                   <PubCard
                     key={pub.title + pub.time}
                     title={pub.title}

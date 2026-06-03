@@ -14,6 +14,17 @@ export interface WorkItem {
 }
 
 /**
+ * Per-employer metadata (logo + website), matched by a lowercase substring of the
+ * company name parsed from the resume. Add an entry here to support a new employer
+ * — no code changes required elsewhere.
+ */
+const EMPLOYER_META: { match: string; logoUrl?: string; href?: string }[] = [
+  { match: 'singapore management university', logoUrl: '/work/smu.svg' },
+  { match: 'smu', logoUrl: '/work/smu.svg' },
+  { match: 'preferred.ai', href: 'https://preferred.ai/' },
+];
+
+/**
  * Helper to extract content inside balanced outer curly braces starting from a search index
  */
 function extractOuterBraces(text: string, startIndex: number): { content: string; endIndex: number } | null {
@@ -117,16 +128,15 @@ export function parseWorkExperienceFromTex(): WorkItem[] {
         const start = dateParts[0] || '';
         const end = dateParts[1] || '';
         
-        // Match logoUrl dynamically based on company name
+        // Resolve logo + website from the employer config (data-driven, see EMPLOYER_META)
+        const companyLower = company.toLowerCase();
         let logoUrl = '';
-        if (company.toLowerCase().includes('singapore management university') || company.toLowerCase().includes('smu')) {
-          logoUrl = '/work/smu.svg';
-        }
-        
-        // Match company website dynamically
         let href = '';
-        if (company.toLowerCase().includes('preferred.ai')) {
-          href = 'https://preferred.ai/';
+        for (const meta of EMPLOYER_META) {
+          if (companyLower.includes(meta.match)) {
+            if (!logoUrl && meta.logoUrl) logoUrl = meta.logoUrl;
+            if (!href && meta.href) href = meta.href;
+          }
         }
         
         items.push({
