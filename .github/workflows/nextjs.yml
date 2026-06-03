@@ -30,13 +30,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '22'
+      - name: Enable Corepack
+        run: corepack enable
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
           # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
@@ -59,13 +61,11 @@ jobs:
           git diff --cached --quiet || git commit -m "ci: update compiled Resume.pdf [skip ci]"
           git push
       - name: Install dependencies
-        run: |
-          npm install -g pnpm
-          pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Build with Next.js
         run: pnpm build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./out
 
@@ -79,4 +79,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

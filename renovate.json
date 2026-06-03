@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits"
+  ],
+  "timezone": "Asia/Singapore",
+  "schedule": ["before 9am on monday"],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "Group GitHub Actions updates; auto-merge low-risk (non-major) bumps",
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions",
+      "automerge": true,
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Keep ESLint on v9 — v10 breaks eslint-plugin-react via eslint-config-next",
+      "matchPackageNames": ["eslint"],
+      "allowedVersions": "<10"
+    }
+  ]
+}
