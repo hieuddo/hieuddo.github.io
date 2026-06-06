@@ -97,6 +97,17 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Honor reduced-motion for the CSS keyframe animations: show the end state
+   instantly, no movement or pulsing. */
+@media (prefers-reduced-motion: reduce) {
+  .page-fade-in {
+    animation: none;
+  }
+  .pulse-green {
+    animation: none;
+  }
+}
+
 
 @layer base {
   * {

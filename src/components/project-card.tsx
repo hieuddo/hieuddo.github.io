@@ -44,7 +44,7 @@ export function ProjectCard({
   return (
     <Card
       className={
-        'flex flex-col overflow-hidden border border-border/40 dark:border-white/5 bg-card/40 dark:bg-card/25 backdrop-blur-md hover:border-primary/45 dark:hover:border-primary/40 hover:shadow-xl hover:shadow-primary/[0.02] hover:-translate-y-0.5 transition-all duration-300 ease-out h-full rounded-2xl'
+        'flex flex-col overflow-hidden border border-border/40 dark:border-white/5 bg-card hover:border-primary/45 dark:hover:border-primary/40 hover:shadow-xl hover:shadow-primary/[0.02] hover:-translate-y-0.5 transition-all duration-300 ease-out h-full rounded-2xl'
       }
     >
       <Link

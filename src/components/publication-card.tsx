@@ -29,10 +29,7 @@ export const PublicationCard = ({
     : [];
 
   return (
-    <Card className="flex border border-border/40 dark:border-white/5 bg-card/25 dark:bg-card/10 backdrop-blur-sm p-5 rounded-2xl hover:border-primary/35 dark:hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.01] hover:-translate-y-[1px] transition-all duration-300 ease-out group relative overflow-hidden w-full">
-      {/* Left accent stripe */}
-      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-300" />
-      
+    <Card className="flex border border-border/40 dark:border-white/5 bg-card p-5 rounded-2xl hover:border-primary/35 dark:hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.01] hover:-translate-y-[1px] transition-all duration-300 ease-out group relative overflow-hidden w-full">
       <div className="flex flex-col gap-y-2.5 w-full">
         {/* Header Title and Period */}
         <div className="flex items-start justify-between gap-x-4">
@@ -50,7 +47,7 @@ export const PublicationCard = ({
         </div>
 
         {/* Venue / Publisher */}
-        <div className="text-xs sm:text-sm text-indigo-500/90 dark:text-indigo-400/90 font-medium leading-snug">
+        <div className="text-xs sm:text-sm text-primary font-medium leading-snug">
           {venue}
         </div>
 

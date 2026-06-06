@@ -1,6 +1,5 @@
 'use client';
 
-import { Card } from '@/components/ui/card';
 import { ArrowUpRight, BookOpen, Briefcase, Trophy, Calendar, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
@@ -61,39 +60,34 @@ export const NewsCard = ({
   const IconComponent = config.icon;
 
   const CardContent = (
-    <Card className="flex border border-border/40 dark:border-white/5 bg-card/25 dark:bg-card/10 backdrop-blur-sm p-4 rounded-2xl hover:border-primary/35 dark:hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.01] hover:-translate-y-[1px] transition-all duration-300 ease-out group relative overflow-hidden w-full">
-      {/* Dynamic left highlight decoration */}
-      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-300" />
-      
-      {/* Sleek icon placeholder */}
+    <div className="flex items-start gap-3.5 py-3.5 border-b border-border/40 dark:border-white/5 group transition-colors">
+      {/* Type-coded icon badge */}
       <div className="flex-none">
-        <div className={`size-10 rounded-xl border flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-105 ${config.bgClass}`}>
-          <IconComponent className={`size-5 ${config.iconClass}`} />
+        <div className={`size-9 rounded-lg border flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${config.bgClass}`}>
+          <IconComponent className={`size-4 ${config.iconClass}`} />
         </div>
       </div>
-      
+
       {/* Content wrapper */}
-      <div className="flex-grow ml-4">
-        <div className="flex flex-col gap-y-1">
-          <div className="flex items-start justify-between gap-x-3">
-            <h3 className="font-bold text-foreground text-xs sm:text-sm tracking-tight inline-flex items-center gap-1.5 leading-snug">
-              {title}
-              {isLink && (
-                <ArrowUpRight className="size-3.5 opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary transition-all duration-300 ease-out shrink-0" />
-              )}
-            </h3>
-            <div className="text-[11px] sm:text-xs tabular-nums text-muted-foreground text-right whitespace-nowrap shrink-0 pt-0.5">
-              {date}
-            </div>
+      <div className="flex-grow min-w-0">
+        <div className="flex items-start justify-between gap-x-3">
+          <h3 className="font-semibold text-foreground text-xs sm:text-sm tracking-tight inline-flex items-center gap-1.5 leading-snug group-hover:text-primary transition-colors">
+            {title}
+            {isLink && (
+              <ArrowUpRight className="size-3.5 opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary transition-all duration-300 ease-out shrink-0" />
+            )}
+          </h3>
+          <div className="text-[11px] sm:text-xs tabular-nums text-muted-foreground text-right whitespace-nowrap shrink-0 pt-0.5">
+            {date}
           </div>
-          {subtitle && (
-            <div className="font-sans text-xs text-muted-foreground font-medium leading-normal">
-              {subtitle}
-            </div>
-          )}
         </div>
+        {subtitle && (
+          <div className="font-sans text-xs text-muted-foreground font-medium leading-normal mt-1">
+            {subtitle}
+          </div>
+        )}
       </div>
-    </Card>
+    </div>
   );
 
   if (isLink) {

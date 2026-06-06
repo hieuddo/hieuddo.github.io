@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { motion, useReducedMotion, Variants } from 'framer-motion';
 import { useMemo } from 'react';
 
 interface BlurFadeTextProps {
@@ -35,50 +35,56 @@ const BlurFadeText = ({
   };
   const combinedVariants = variant || defaultVariants;
   const characters = useMemo(() => Array.from(text), [text]);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Reduced motion: render the text statically and fully visible.
+  if (shouldReduceMotion) {
+    return (
+      <Wrapper className={cn('inline-block', className)} data-blur-fade>
+        {text}
+      </Wrapper>
+    );
+  }
 
   if (animateByCharacter) {
     return (
       <Wrapper className="flex">
-        <AnimatePresence>
-          {characters.map((char, i) => (
-            <motion.span
-              key={i}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={combinedVariants}
-              transition={{
-                delay: delay + i * characterDelay,
-                ease: 'easeOut',
-              }}
-              className={cn('inline-block', className)}
-              style={{ width: char.trim() === '' ? '0.2em' : 'auto' }}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </AnimatePresence>
+        {characters.map((char, i) => (
+          <motion.span
+            key={i}
+            data-blur-fade
+            initial="hidden"
+            animate="visible"
+            variants={combinedVariants}
+            transition={{
+              delay: delay + i * characterDelay,
+              ease: 'easeOut',
+            }}
+            className={cn('inline-block', className)}
+            style={{ width: char.trim() === '' ? '0.2em' : 'auto' }}
+          >
+            {char}
+          </motion.span>
+        ))}
       </Wrapper>
     );
   }
 
   return (
     <Wrapper className="flex">
-      <AnimatePresence>
-        <motion.span
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={combinedVariants}
-          transition={{
-            delay,
-            ease: 'easeOut',
-          }}
-          className={cn('inline-block', className)}
-        >
-          {text}
-        </motion.span>
-      </AnimatePresence>
+      <motion.span
+        data-blur-fade
+        initial="hidden"
+        animate="visible"
+        variants={combinedVariants}
+        transition={{
+          delay,
+          ease: 'easeOut',
+        }}
+        className={cn('inline-block', className)}
+      >
+        {text}
+      </motion.span>
     </Wrapper>
   );
 };

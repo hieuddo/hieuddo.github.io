@@ -91,7 +91,7 @@ function PubCard({ title, authors, dates, venue, image, links }: {
           {title}
         </h3>
         {venue && (
-          <p className="text-xs sm:text-sm font-medium text-indigo-500/80 dark:text-indigo-400/80 leading-normal">{venue}</p>
+          <p className="text-xs sm:text-sm font-medium text-primary leading-normal">{venue}</p>
         )}
         {authors && (
           <span className="text-xs sm:text-sm text-muted-foreground leading-normal">

@@ -47,7 +47,7 @@ export function TeachingCard({
           {title}
         </h3>
         {role && (
-          <p className="text-xs sm:text-sm font-medium text-indigo-500/80 dark:text-indigo-400/80">{role}</p>
+          <p className="text-xs sm:text-sm font-medium text-primary">{role}</p>
         )}
         {description && (
           <span className="prose dark:prose-invert text-xs sm:text-sm text-muted-foreground leading-relaxed">

@@ -8,6 +8,7 @@ export const DATA = {
   location: 'Singapore',
   locationLink: 'https://maps.app.goo.gl/j4vQ1ED92G9Fohu6A',
   description: 'Research Scientist',
+  affiliation: 'Preferred.AI, SMU',
   summary:
     'Xin chào (Hello)! I am currently a Research Scientist at Singapore Management University ([Preferred.AI](https://preferred.ai/)) where I work on behavioral understanding for portfolio management. I completed my Ph.D. at SMU School of Computing and Information Systems, where I was advised by [Prof. Hady W. Lauw](https://www.hadylauw.com/). Prior to that, I obtained my B.Sc. in Computer Science from Vietnam National University, Hanoi, under the supervision of Dr. Mai-Vu Tran and [Dr. Duc-Trong Le](https://sites.google.com/view/trongld). My research primarily revolves around the formulation and solution of dynamic real-world problems.',
   avatarUrl: '/me.webp',

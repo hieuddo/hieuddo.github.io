@@ -62,6 +62,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* If JS is disabled or fails, force all reveal wrappers visible so no
+            section ships blank. !important beats framer-motion's inline opacity:0. */}
+        <noscript>
+          <style>{`[data-blur-fade]{opacity:1!important;filter:none!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto pt-28 pb-20 px-6 sm:px-8 relative',
