@@ -7,7 +7,7 @@ name: Deploy Next.js site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['new']
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,6 +31,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Check for resume changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            resume:
+              - 'resume/**'
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -46,14 +53,17 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
       - name: Compile Resume LaTeX
+        if: steps.filter.outputs.resume == 'true'
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume/resume.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
       - name: Copy Resume PDF to public
+        if: steps.filter.outputs.resume == 'true'
         run: cp resume.pdf public/Resume.pdf
       - name: Commit compiled Resume PDF
+        if: steps.filter.outputs.resume == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
