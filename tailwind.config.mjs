@@ -1,5 +1,3 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-
 /** @type {import('tailwindcss').Config} */
 const config = {
   darkMode: 'class',
@@ -20,7 +18,21 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        // OS-routing stack: Apple devices resolve SF Pro (system, no download);
+        // everyone else falls through to self-hosted Hanken Grotesk, then native
+        // sans as a last resort. No JS / user-agent detection needed.
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Text"',
+          '"SF Pro Display"',
+          'var(--font-hanken)',
+          '"Segoe UI"',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
       },
       colors: {
         border: 'hsl(var(--border))',
