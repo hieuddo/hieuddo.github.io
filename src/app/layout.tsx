@@ -5,12 +5,17 @@ import { DATA } from '@/data/resume';
 import { cn } from '@/lib/utils';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans as FontSans } from 'next/font/google';
+import { Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 
-const fontSans = FontSans({
+// Self-hosted fallback for non-Apple devices. Apple devices get real SF Pro
+// via the system-font stack in tailwind.config.mjs (no download), so this is
+// only fetched on Windows / Android / Linux.
+const fontHanken = Hanken_Grotesk({
   subsets: ['latin'],
-  variable: '--font-sans',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-hanken',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -60,7 +65,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto pt-28 pb-20 px-6 sm:px-8 relative',
-          fontSans.variable
+          fontHanken.variable
         )}
       >
         <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
