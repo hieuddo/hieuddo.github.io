@@ -77,7 +77,7 @@ function PubCard({ title, authors, dates, venue, image, links }: {
             <AvatarFallback>{title[0]}</AvatarFallback>
           </Avatar>
         ) : (
-          <div className="size-3 rounded-full border-2 border-primary bg-background flex items-center justify-center relative shadow-[0_0_8px_rgba(99,102,241,0.35)] transition-transform duration-300 group-hover:scale-125">
+          <div className="size-3 rounded-full border-2 border-primary bg-background flex items-center justify-center relative shadow-[0_0_8px_hsl(var(--primary)/0.35)] transition-transform duration-300 group-hover:scale-125">
             <span className="absolute size-1.5 rounded-full bg-primary" />
           </div>
         )}

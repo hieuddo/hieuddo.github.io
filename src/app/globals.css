@@ -67,16 +67,49 @@
 }
 
 /* Custom modern utility classes */
+/* Ruled lab-notebook texture: grid lines routed through the Signal Violet
+   --primary token (not a hardcoded indigo) so it swaps with the accent. The
+   alpha is tuned to a deliberate, just-perceptible texture, restrained but
+   no longer pointless. */
 .tech-grid {
-  background-image: 
-    linear-gradient(to right, rgba(99, 102, 241, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .dark .tech-grid {
-  background-image: 
-    linear-gradient(to right, rgba(99, 102, 241, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, hsl(var(--primary) / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.07) 1px, transparent 1px);
+}
+
+/* Skip-to-content link: visually hidden until keyboard focus, then it pins
+   to the top-left on an on-brand Signal Violet surface with a visible ring. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 9999px;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 15px -3px hsl(var(--primary) / 0.2);
+  transition: transform 0.2s ease-out;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid hsl(var(--ring) / 0.5);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
 }
 
 @keyframes pulse-soft {

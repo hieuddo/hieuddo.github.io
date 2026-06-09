@@ -30,7 +30,7 @@ export default function Navbar() {
         <Link 
           href="/" 
           onClick={handleHomeClick}
-          className="hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className="hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <img 
             src="/monkas.svg" 
@@ -49,8 +49,8 @@ export default function Navbar() {
                 href={link.href}
                 onClick={link.href === '/' ? handleHomeClick : undefined}
                 className={cn(
-                  'px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 relative',
-                  isActive 
+                  'px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+                  isActive
                     ? 'text-foreground' 
                     : 'text-muted-foreground hover:text-foreground'
                 )}

@@ -107,7 +107,11 @@ export const ResumeCard = ({
 
   if (isLink) {
     return (
-      <Link href={href || '#'} className="block cursor-pointer" target="_blank">
+      <Link
+        href={href || '#'}
+        className="block cursor-pointer rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        target="_blank"
+      >
         {CardContent}
       </Link>
     );

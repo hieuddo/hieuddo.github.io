@@ -75,6 +75,9 @@ export default function RootLayout({
           fontHanken.variable
         )}
       >
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <GoogleAnalytics gaId="G-PXZ5HVM2CP" />
         <ThemeProvider attribute="class" defaultTheme="system">
           <TooltipProvider delayDuration={0}>
@@ -102,7 +105,7 @@ export default function RootLayout({
             {/* Top Navbar & Floating Utilities */}
             <Navbar />
 
-            <main className="w-full page-fade-in">
+            <main id="main-content" tabIndex={-1} className="w-full page-fade-in outline-none">
               {children}
             </main>
 

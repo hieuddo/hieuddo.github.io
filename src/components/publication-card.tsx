@@ -59,7 +59,7 @@ export const PublicationCard = ({
                 href={links.DOI}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <BookOpen className="size-3 text-emerald-500/80" /> DOI / Publisher
               </a>
@@ -70,7 +70,7 @@ export const PublicationCard = ({
                 href={pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <FileText className="size-3 text-red-500/80" /> PDF {pdfLinks.length > 1 ? `#${index + 1}` : ''}
               </a>
@@ -80,7 +80,7 @@ export const PublicationCard = ({
                 href={links.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 dark:border-white/5 bg-secondary/50 dark:bg-zinc-900/60 hover:bg-secondary dark:hover:bg-zinc-800 text-[10px] sm:text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/45 transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Code className="size-3 text-blue-500/80" /> Source Code
               </a>

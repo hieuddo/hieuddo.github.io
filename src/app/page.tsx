@@ -14,8 +14,8 @@ import { parseWorkExperienceFromTex } from '@/lib/parse-resume';
 import { PublicationCard } from '@/components/publication-card';
 import publicationsData from '@/data/publications.json';
 import { ChevronRightIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { SectionHeading } from '@/components/section-heading';
+import { CopyEmail } from '@/components/copy-email';
 
 const BLUR_FADE_DELAY = 0.04;
 const SQUIRCLE_POWER: 3 | 4 | 5 = 5;
@@ -33,6 +33,10 @@ export default function Page() {
   const parsedWork = parseWorkExperienceFromTex();
   const workExperience = parsedWork.length > 0 ? parsedWork : DATA.work;
   const publications = publicationsData.flatMap((group) => group.publications);
+  const resumeContact = Object.entries(DATA.contact.social).find(
+    ([name]) => name === 'Resume'
+  )?.[1];
+  const ResumeIcon = resumeContact?.icon;
 
   const personJsonLd = {
     '@context': 'https://schema.org',
@@ -47,7 +51,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col min-h-dvh space-y-12">
+    <div className="flex flex-col min-h-dvh space-y-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -75,31 +79,57 @@ export default function Page() {
                 </p>
               </BlurFade>
 
-              {/* Dynamic contact and social action bar */}
+              {/* Profile links in a wrapping row; the highlighted Resume
+                  action is pinned to its own line so it never reflows in
+                  among the ghost pills. The Email pill is dropped in favor of
+                  the click-to-copy address below. */}
               <BlurFade delay={BLUR_FADE_DELAY * 1.5}>
-                <div className="flex flex-wrap items-center gap-2 mt-2 select-none">
-                  {Object.entries(DATA.contact.social).map(([name, social]) => {
-                    const IconComponent = social.icon;
-                    const isResume = name === 'Resume';
-                    return (
-                      <a
-                        key={name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          'inline-flex items-center gap-x-1.5 text-xs font-semibold transition-all duration-200 px-3 py-1 rounded-full shadow-sm shadow-black/[0.01] border',
-                          isResume
-                            ? 'bg-primary text-primary-foreground border-primary/60 hover:bg-primary/90'
-                            : 'text-muted-foreground hover:text-primary bg-secondary/50 dark:bg-card/25 hover:bg-secondary border-border/40 dark:border-white/5'
-                        )}
-                      >
-                        <IconComponent className="size-3.5" />
-                        {name}
-                      </a>
-                    );
-                  })}
+                <div className="flex flex-col items-start gap-2 mt-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {Object.entries(DATA.contact.social)
+                      .filter(([name]) => name !== 'Resume' && name !== 'Email')
+                      .map(([name, social]) => {
+                        const IconComponent = social.icon;
+                        return (
+                          <a
+                            key={name}
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-x-1.5 text-xs font-semibold transition-all duration-200 px-3 py-1 rounded-full shadow-sm shadow-black/[0.01] border text-muted-foreground hover:text-primary bg-secondary/50 dark:bg-card/25 hover:bg-secondary border-border/40 dark:border-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                          >
+                            <IconComponent className="size-3.5" />
+                            {name}
+                          </a>
+                        );
+                      })}
+                  </div>
+                  {resumeContact && ResumeIcon && (
+                    <a
+                      href={resumeContact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-x-1.5 text-xs font-semibold transition-all duration-200 px-3 py-1 rounded-full shadow-sm shadow-black/[0.01] border bg-primary text-primary-foreground border-primary/60 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                      <ResumeIcon className="size-3.5" />
+                      Resume
+                    </a>
+                  )}
                 </div>
+              </BlurFade>
+
+              {/* "Drop me an email" launches the mail client; clicking the
+                  address itself copies it to the clipboard. */}
+              <BlurFade delay={BLUR_FADE_DELAY * 1.75}>
+                <p className="text-xs text-muted-foreground mt-1">
+                  <a
+                    href={`mailto:${DATA.contact.email}`}
+                    className="font-medium text-foreground underline decoration-primary/40 underline-offset-2 transition-colors hover:text-primary hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                  >
+                    Drop me an email
+                  </a>{' '}
+                  at: <CopyEmail email={DATA.contact.email} />
+                </p>
               </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
@@ -162,7 +192,7 @@ export default function Page() {
               >
                 <Badge
                   key={skill}
-                  className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 hover:bg-secondary border-none text-secondary-foreground rounded-full"
+                  className="px-3 py-1 text-xs font-semibold tracking-wide bg-secondary/80 border-none text-secondary-foreground rounded-full"
                 >
                   {skill}
                 </Badge>
@@ -229,7 +259,7 @@ export default function Page() {
 
           <div className="flex justify-center mt-3">
             <a href="/publication">
-              <button className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] flex items-center cursor-pointer">
+              <button className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] flex items-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                 Explore All Publications
                 <ChevronRightIcon className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5 shrink-0" />
               </button>
@@ -312,10 +342,11 @@ export default function Page() {
 
       <section id="blogs">
         <div className="space-y-6">
-          <div className="flex flex-col items-center justify-center space-y-2 text-center">
-            <SectionHeading className="text-left">Personal Blogs</SectionHeading>
-            <p className="text-muted-foreground text-xs sm:text-sm text-left w-full mt-2">
-              Explore, experience, and enrich.
+          <div className="space-y-2">
+            <SectionHeading>Personal Blogs</SectionHeading>
+            <p className="text-muted-foreground text-xs sm:text-sm">
+              Create, explore, expand, conquer: the same loop in research and
+              out on the trails.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-200 mx-auto">
@@ -340,6 +371,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

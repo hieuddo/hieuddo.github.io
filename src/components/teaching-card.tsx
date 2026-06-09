@@ -33,7 +33,7 @@ export function TeachingCard({
             <AvatarFallback>{title[0]}</AvatarFallback>
           </Avatar>
         ) : (
-          <div className="size-3 rounded-full border-2 border-primary bg-background flex items-center justify-center relative shadow-[0_0_8px_rgba(99,102,241,0.35)] dark:shadow-[0_0_8px_rgba(99,102,241,0.55)] transition-transform duration-300 group-hover:scale-125">
+          <div className="size-3 rounded-full border-2 border-primary bg-background flex items-center justify-center relative shadow-[0_0_8px_hsl(var(--primary)/0.35)] dark:shadow-[0_0_8px_hsl(var(--primary)/0.55)] transition-transform duration-300 group-hover:scale-125">
             <span className="absolute size-1.5 rounded-full bg-primary" />
           </div>
         )}
@@ -58,7 +58,11 @@ export function TeachingCard({
       {links && links.length > 0 && (
         <div className="mt-2 ml-2 flex flex-row flex-wrap items-start gap-2">
           {links?.map((link, idx) => (
-            <Link href={link.href} key={idx}>
+            <Link
+              href={link.href}
+              key={idx}
+              className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
               <Badge key={idx} title={link.title} className="flex gap-2 text-[10px] px-2 py-0.5">
                 {link.icon}
                 {link.title}

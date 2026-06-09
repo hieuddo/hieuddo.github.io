@@ -49,7 +49,10 @@ export function ProjectCard({
     >
       <Link
         href={href || '#'}
-        className={cn('block cursor-pointer overflow-hidden', className)}
+        className={cn(
+          'block cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+          className
+        )}
       >
         {video && (
           <video
@@ -75,7 +78,12 @@ export function ProjectCard({
       <CardHeader className="p-4 sm:p-5 pb-0">
         <div className="space-y-1">
           <CardTitle className="mt-1 text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors">
-            <Link href={href || '#'}>{title}</Link>
+            <Link
+              href={href || '#'}
+              className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {title}
+            </Link>
           </CardTitle>
           <time className="font-sans text-[11px] text-muted-foreground">{dates}</time>
           <div className="hidden font-sans text-xs underline print:visible">
@@ -98,7 +106,7 @@ export function ProjectCard({
             {(Array.isArray(tags) ? tags : (tags as string).split(',')).map(
               (tag) => (
                 <Badge
-                  className="px-2 py-0.5 text-[10px] font-medium tracking-wide bg-secondary/80 text-secondary-foreground border-none hover:bg-secondary"
+                  className="px-2 py-0.5 text-[10px] font-medium tracking-wide bg-secondary/80 text-secondary-foreground border-none"
                   variant="secondary"
                   key={tag.trim()}
                 >
@@ -113,7 +121,13 @@ export function ProjectCard({
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-start gap-1">
             {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
+              <Link
+                href={link?.href}
+                key={idx}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
                 <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
                   {link.type}

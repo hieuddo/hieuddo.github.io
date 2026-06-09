@@ -85,7 +85,7 @@ export const NewsList = ({ newsItems }: NewsListProps) => {
           <Button
             variant="outline"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 shadow-sm select-none hover:shadow hover:shadow-primary/[0.02]"
+            className="group gap-2 rounded-full border border-border/40 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/20 px-6 py-1.5 transition-all duration-300 font-semibold text-xs sm:text-sm bg-secondary/50 dark:bg-card/25 shadow-sm select-none hover:shadow hover:shadow-primary/[0.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {isExpanded ? (
               <>

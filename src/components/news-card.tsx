@@ -91,8 +91,19 @@ export const NewsCard = ({
   );
 
   if (isLink) {
+    // Only external links (different origin / http(s)) or PDFs open in a new tab;
+    // internal/relative routes (e.g. "/blog/...", "#anchor") stay in the same tab.
+    const isExternal =
+      /^https?:\/\//i.test(href) || /\.pdf($|[?#])/i.test(href);
+
     return (
-      <Link href={href || '#'} className="block cursor-pointer w-full" target="_blank">
+      <Link
+        href={href || '#'}
+        className="block cursor-pointer w-full rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        {...(isExternal
+          ? { target: '_blank', rel: 'noopener noreferrer' }
+          : {})}
+      >
         {CardContent}
       </Link>
     );
