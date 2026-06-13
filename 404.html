@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://jaimehd.com" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+            (function () {
+                // 1. Capture the exact URL currently visible in the address bar
+                var currentUrl = window.location.href;
+
+                // 2. Extract the path trailing after 'hieuddo.github.io'
+                var domainIndex = currentUrl.indexOf('hieuddo.github.io');
+
+                if (domainIndex !== -1) {
+                    // Strip out 'hieuddo.github.io' to isolate the remaining sub-path string
+                    var pathAndQuery = currentUrl.substring(domainIndex + 'hieuddo.github.io'.length);
+
+                    // 3. Reconstruct the clean, unified destination URL
+                    window.location.href = "https://jaimehd.com" + pathAndQuery;
+                } else {
+                    // Safe global fallback if accessed by an unexpected alternative routing asset
+                    window.location.href = "https://jaimehd.com/";
+                }
+            })();
+    </script>
+</head>
+
+<body>
+    <p>Redirecting to <a href="https://jaimehd.com">Jaime's Portfolio</a>...</p>
+</body>
+
+</html>
